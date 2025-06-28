@@ -2,15 +2,31 @@ import React, { useState,useContext } from "react";
 import styles from "../LandingPage/ProductPage/ProductPage.module.css";
 import cartStyles from "./CartStyles.module.css"
 import Context from "../UseContext/Context";
+import Cartitems from "./Cartitems";
 const CartItem = ({ product,fontSize="",imgHeight }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0].size);
-  const { additionToCard,currentCurrency } = useContext(Context);
+  const [selectedSize, setSelectedSize] = useState(product.selectedSize.size);
+  const { additionToCard,currentCurrency ,setCartItems} = useContext(Context);
 
-  const handleSizeSelect = (size) => {
-    setSelectedSize(size);
-  };
+  const handleSizeSelect = (newSize) => {setCartItems((prev) =>
+    prev.map((item) => {
+      if (item.id === product.id && item.selectedSize.size === selectedSize) {
+        return {
+          ...item,
+          selectedSize: {
+            ...item.selectedSize,
+            size: newSize, // update the size
+          },
+        };
+      }
+      return item;
+    })
+  );
+
+  setSelectedSize(newSize);
+};
+
   const handleImageSwap=(direction)=>{
     if(direction=="right"){
         currentImageIndex<product.ArraysOfImg.length-1 ? setCurrentImageIndex(currentImageIndex+1):setCurrentImageIndex(0) 
@@ -19,7 +35,7 @@ const CartItem = ({ product,fontSize="",imgHeight }) => {
     }
 
   }
-  const chosenSizeQuantity=product.sizeQuantities[selectedSize] || 0
+  const chosenSizeQuantity=product.selectedSize.quantity || 0
   return (
     <div className={cartStyles.itemContainer} >
       <div className={styles.upperInfo} style={fontSize ? { fontSize: fontSize } : {}}>
