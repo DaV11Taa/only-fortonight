@@ -1,0 +1,137 @@
+.cart-container {
+    width: 325px;
+    padding: 16px;
+    background: white;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .cart-header {
+    margin-bottom: 24px;
+  }
+  
+  .cart-header h2 {
+    font-weight: 700;
+    font-size: 16px;
+    display: inline;
+    margin-right: 8px;
+  }
+  
+  .item-count {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .cart-item {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .item-info {
+    flex: 1;
+  }
+  
+  .item-name {
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .item-price {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .size-label {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .size-options {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .size-option {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #1D1F22;
+    background: none;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .size-option.selected {
+    background: #1D1F22;
+    color: white;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 8px;
+  }
+  
+  .quantity-btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #1D1F22;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quantity {
+    margin: 8px 0;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .item-image {
+    width: 120px;
+    height: 120px;
+    background: #f7f7f7;
+    margin-left: 8px;
+  }
+  
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 32px 0;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .cart-actions {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .view-bag-btn, .checkout-btn {
+    flex: 1;
+    height: 43px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .view-bag-btn {
+    background: white;
+    border: 1px solid #1D1F22;
+  }
+  
+  .checkout-btn {
+    background: #5ECE7B;
+    border: none;
+    color: white;
+  }
