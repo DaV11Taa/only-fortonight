@@ -11,7 +11,6 @@ export const products = [
 			"/images/WOMEN_Running_Short_2.jpg",
 			"/images/WOMEN_Running_Short_3.jpg",
 		],
-		sizes: ["XS", "S", "M", "L"],
 		sizes: [
 			{ size: "XS", stock: 10 },
 			{ size: "S", stock: 10 },
@@ -182,10 +181,6 @@ export const products = [
 		],
 		price: 60.0,
 		currency: "USD",
-		originalPrice: 60.0,
-		S: 5,
-		M: 20,
-		L: 80,
 		description:
 			"Muscle-enhancing compression shirt with sweat-wicking fabric for optimal performance.",
 	},
@@ -208,9 +203,6 @@ export const products = [
 		price: 70.0,
 		currency: "USD",
 		originalPrice: 70.0,
-		S: 25,
-		M: 2,
-		L: 80,
 		description:
 			"Track pants made with stretch material for ease of movement. Designed for training and casual use.",
 	},
@@ -303,9 +295,6 @@ export const products = [
 		price: 25.0,
 		currency: "USD",
 		originalPrice: 25.0,
-		XS: 25,
-		S: 30,
-		M: 80,
 		description:
 			"Fun and colorful graphic tee made from 100% organic cotton. Great for everyday play.",
 	},
@@ -328,9 +317,6 @@ export const products = [
 		price: 35.0,
 		currency: "USD",
 		originalPrice: 35.0,
-		S: 25,
-		M: 20,
-		L: 80,
 		description:
 			"Durable joggers with elastic waist and cuffs for maximum comfort during activity.",
 	},

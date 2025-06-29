@@ -15,7 +15,7 @@ function App() {
   const [productsData, setProductsData] = useState(products);
   const [orderInfo, setOrderInfo] = useState({});
   const [cartItems, setCartItems] = useState([]);
-  const additionToCard = (selectedSize, product, change) => {
+  const additionToCard = (selectedSize, product) => {
   const selectedStock = product.sizes.find((s) => s.size === selectedSize);
 
   const existingProduct = cartItems.find(
@@ -67,7 +67,7 @@ function App() {
     let totalQuantity = 0;
   
     for (const item of cartItems) {
-       { totalQuantity += item.selectedSize.quantity;
+       { totalQuantity += item.selectedSize.quantity || 0;
         totalPrice += item.selectedSize.quantity * item.price;
       }
     }
