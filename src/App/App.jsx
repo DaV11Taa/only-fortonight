@@ -67,8 +67,8 @@ function App() {
     let totalQuantity = 0;
   
     for (const item of cartItems) {
-       { totalQuantity += item.selectedSize.quantity || 0;
-        totalPrice += item.selectedSize.quantity * item.price;
+       { totalQuantity += item?.selectedSize.quantity || 0;
+        totalPrice += item?.selectedSize.quantity * item.price;
       }
     }
 
