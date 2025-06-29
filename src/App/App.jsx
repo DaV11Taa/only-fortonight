@@ -17,22 +17,15 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const additionToCard = (selectedSize, product, change) => {
     console.log(cartItems);
-
     const selectedStock = product.sizes.find((s) => s.size === selectedSize);
-
     const maxStock = selectedStock.stock;
-
     setCartItems((prev) => {
       const existingProduct = prev.find((item) => item.id === product.id);
-
       if (existingProduct) {
         const currentQty = existingProduct.sizeQuantities[selectedSize] || 0;
-
         return prev.map((item) => {
           if (item.id !== product.id) return item;
-
           let updatedQty = currentQty;
-
           if (change === "increase") {
             if (currentQty >= maxStock) {
               alert("Stock limit reached for this size");
@@ -44,7 +37,6 @@ function App() {
           } else {
             return item; // ignore unknown change types
           }
-
           return {
             ...item,
             sizeQuantities: {
@@ -54,7 +46,6 @@ function App() {
           };
         });
       }
-
       // Product not in cart yet → add only if increasing
       if (change === "increase") {
         return [
@@ -67,10 +58,10 @@ function App() {
           },
         ];
       }
-
       // Don't add anything if trying to decrease a non-existing product
       return prev;
     });
+    
   };
   	const symbols = {
 		USD: "$", // USD Currency

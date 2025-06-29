@@ -1,5 +1,5 @@
 import React from 'react';
-import './DropDownCart.css';
+import styles from './DropDownCart.module.css';
 import { useNavigate } from "react-router-dom";
 
 const DropDownCart = () => {
@@ -26,25 +26,25 @@ const DropDownCart = () => {
   const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   return (
-    <div className="cart-container">
-      <div className="cart-header">
+    <div className={styles.cartContainer}>
+      <div className={styles.cartHeader}>
         <h2>My Bag</h2>
-        <span className="item-count">{cartItems.reduce((count, item) => count + item.quantity, 0)} Items</span>
+        <span className={styles.itemCount}>{cartItems.reduce((count, item) => count + item.quantity, 0)} Items</span>
       </div>
 
       {cartItems.map((item, index) => (
-        <div key={index} className="cart-item">
-          <div className="item-info">
-            <h3 className="item-name">{item.name}</h3>
-            <p className="item-price">{item.currency}{item.price.toFixed(2)}</p>
+        <div key={index} className={styles.cartItem}>
+          <div className={styles.itemInfo}>
+            <h3 className={styles.itemName}>{item.name}</h3>
+            <p className={styles.itemPrice}>{item.currency}{item.price.toFixed(2)}</p>
             
-            <div className="size-selector">
-              <p className="size-label">Size:</p>
-              <div className="size-options">
+            <div className={styles.sizeSelector}>
+              <p className={styles.sizeLabel}>Size:</p>
+              <div className={styles.sizeOptions}>
                 {item.sizes.map((size) => (
                   <button 
                     key={size}
-                    className={`size-option ${item.selectedSize === size ? 'selected' : ''}`}
+                    className={`${styles.sizeOption} ${item.selectedSize === size ? styles.selected : ''}`}
                   >
                     {size}
                   </button>
@@ -53,26 +53,27 @@ const DropDownCart = () => {
             </div>
           </div>
           
-          <div className="quantity-controls">
-            <button className="quantity-btn">+</button>
-            <span className="quantity">{item.quantity}</span>
-            <button className="quantity-btn">-</button>
+          <div className={styles.quantityControls}>
+            <button className={styles.quantityBtn}>+</button>
+            <span className={styles.quantity}>{item.quantity}</span>
+            <button className={styles.quantityBtn}>-</button>
           </div>
           
-          <div className="item-image">
+          <div className={styles.itemImage}>
             {/* Image would go here */}
           </div>
         </div>
       ))}
 
-      <div className="cart-total">
+      <div className={styles.cartTotal}>
         <p>Total</p>
-        <p className="total-amount">{cartItems[0].currency}{total.toFixed(2)}</p>
+        <p className={styles.totalAmount}>{cartItems[0].currency}{total.toFixed(2)}</p>
       </div>
 
-      <div className="cart-actions">
-        <button className="view-bag-btn">VIEW BAG</button>
-        <button className="checkout-btn" onClick={() => navigate("/CartPage")}>CHECK OUT</button>
+      <div className={styles.cartActions}>
+        <button className={styles.viewBagBtn} onClick={() => navigate("/CartPage")}>VIEW BAG</button>
+        {/* <button className={styles.checkoutBtn} onClick={() => navigate("/shipping/details")}>CHECK OUT</button> */}
+        <button className={styles.checkoutBtn} onClick={() => console.log("dundula")}>CHECK OUT</button>
       </div>
     </div>
   );
