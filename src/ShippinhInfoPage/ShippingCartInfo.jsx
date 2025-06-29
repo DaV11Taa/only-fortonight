@@ -1,5 +1,6 @@
 
 import { useContext } from "react";
+import Context from "../UseContext/Context";
 const ShippingCartInfo = ({ backGroundColor, shipping }) => {
   const { totalPrice,currentCurrency}=useContext(Context)
     const GrandTotal = Number(shipping)

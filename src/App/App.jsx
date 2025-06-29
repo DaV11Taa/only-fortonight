@@ -15,54 +15,48 @@ function App() {
   const [productsData, setProductsData] = useState(products);
   const [orderInfo, setOrderInfo] = useState({});
   const [cartItems, setCartItems] = useState([]);
-  const additionToCard = (selectedSize, product, change) => {
-    console.log(cartItems);
-    const selectedStock = product.sizes.find((s) => s.size === selectedSize);
-    const maxStock = selectedStock.stock;
-    setCartItems((prev) => {
-      const existingProduct = prev.find((item) => item.id === product.id);
-      if (existingProduct) {
-        const currentQty = existingProduct.sizeQuantities[selectedSize] || 0;
-        return prev.map((item) => {
-          if (item.id !== product.id) return item;
-          let updatedQty = currentQty;
-          if (change === "increase") {
-            if (currentQty >= maxStock) {
-              alert("Stock limit reached for this size");
-              return item;
-            }
-            updatedQty = currentQty + 1;
-          } else if (change === "decrease") {
-            updatedQty = Math.max(currentQty - 1, 0);
-          } else {
-            return item; // ignore unknown change types
-          }
+  const additionToCard = (selectedSize, product) => {
+  const selectedStock = product.sizes.find((s) => s.size === selectedSize);
+
+  const existingProduct = cartItems.find(
+    (item) => item.id === product.id && item.selectedSize.size === selectedSize
+  );
+
+  // Exit early if quantity is already at stock limit
+  if (existingProduct && existingProduct.selectedSize.quantity === selectedStock.quantity) {
+    return; // Function exits here 
+  }
+
+  setCartItems((prev) => {
+    if (existingProduct) {
+      return prev.map((item) => {
+        if (item.id === product.id && item.selectedSize.size === selectedSize) {
           return {
             ...item,
-            sizeQuantities: {
-              ...item.sizeQuantities,
-              [selectedSize]: updatedQty,
+            selectedSize: {
+              ...item.selectedSize,
+              quantity: item.selectedSize.quantity + 1,
             },
           };
-        });
-      }
-      // Product not in cart yet → add only if increasing
-      if (change === "increase") {
-        return [
-          ...prev,
-          {
-            ...product,
-            sizeQuantities: {
-              [selectedSize]: 1,
-            },
-          },
-        ];
-      }
-      // Don't add anything if trying to decrease a non-existing product
-      return prev;
-    });
-    
-  };
+        }
+        return item;
+      });
+    }
+
+    // Add new product if it didn't exist
+    return [
+      ...prev,
+      {
+        ...product,
+        selectedSize: {
+          size: selectedSize,
+          quantity: 1,
+        },
+      },
+    ];
+  });
+};
+
   	const symbols = {
 		USD: "$", // USD Currency
 		EUR: "€", // EUR Currency
@@ -71,16 +65,14 @@ function App() {
   const { totalPrice, totalQuantity,currentCurrency } = useMemo(() => {
     let totalPrice = 0;
     let totalQuantity = 0;
-
+  
     for (const item of cartItems) {
-      for (const size in item.sizeQuantities) {
-        const qty = item.sizeQuantities[size];
-        totalQuantity += qty;
-        totalPrice += qty * item.price;
+       { totalQuantity += item?.selectedSize.quantity || 0;
+        totalPrice += item?.selectedSize.quantity * item.price;
       }
     }
 
-    return { totalPrice, totalQuantity,currentCurrency:symbols[cartItems[0]?.currency]};
+    return { totalPrice, totalQuantity,currentCurrency:symbols[productsData[0]?.currency]};
   }, [cartItems]);
 // hope it merged well
   return (
@@ -92,6 +84,7 @@ function App() {
           orderInfo: orderInfo,
           setOrderInfo: setOrderInfo,
           cartItems: cartItems,
+          setCartItems:setCartItems,
           additionToCard: additionToCard,
           totalPrice: totalPrice,
           totalQuantity: totalQuantity,
