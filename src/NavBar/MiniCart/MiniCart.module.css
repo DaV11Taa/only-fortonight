@@ -41,7 +41,8 @@
 	top: 100%;
 	right: 0;
 	margin-top: 4px;
-	width: 25vw;
+	width: 325px;
+	max-height: 525px;
 	background: white;
 	border: 1px solid #e0e0e0;
 	border-radius: 8px;

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from "../../UseContext/Context";
 import styles from "./ProductCard.module.css";
 
 const ProductCard = ({ product }) => {
+	const { additionToCard } = useContext(Context);
 	const symbols = {
 		USD: "$", // USD Currency
 		EUR: "€", // EUR Currency
@@ -25,9 +27,8 @@ const ProductCard = ({ product }) => {
 			<button
 				className={styles.addToCartBtn}
 				onClick={(e) => {
-					// here i should put code to add product to Card
 					e.preventDefault();
-					console.log("dundula");
+					additionToCard(product.sizes[0].size, product, "increase");
 				}}
 			>
 				<svg

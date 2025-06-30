@@ -1,0 +1,174 @@
+.cartContainer {
+	width: 325px;
+	padding: 16px;
+	background: white;
+	font-family: "Raleway", sans-serif;
+}
+
+.cartHeader {
+	margin-bottom: 24px;
+}
+
+.cartHeader h2 {
+	font-weight: 700;
+	font-size: 16px;
+	display: inline;
+	margin-right: 8px;
+}
+
+.itemCount {
+	font-weight: 500;
+	font-size: 16px;
+}
+
+.cartItems {
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.cartItems::-webkit-scrollbar {
+  display: none;
+}
+
+.cartItem {
+	display: flex;
+	margin-bottom: 40px;
+	position: relative;
+}
+
+.itemInfo {
+	flex: 1;
+}
+
+.itemName {
+	font-weight: 300;
+	font-size: 16px;
+	margin-bottom: 8px;
+}
+
+.itemPrice {
+	font-weight: 500;
+	font-size: 16px;
+	margin-bottom: 12px;
+}
+
+.sizeLabel {
+	font-weight: 400;
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.sizeOptions {
+	display: flex;
+	gap: 8px;
+}
+
+.sizeOption {
+	width: 24px;
+	height: 24px;
+	border: 1px solid #1d1f22;
+	background: none;
+	font-size: 14px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sizeOption.selected {
+	background: #1d1f22;
+	color: white;
+}
+
+.quantityControls {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 8px;
+}
+
+.quantityBtn {
+	width: 24px;
+	height: 24px;
+	border: 1px solid #1d1f22;
+	background: none;
+	font-size: 16px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.quantity {
+	margin: 8px 0;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+.itemImage {
+	width: 120px;
+	height: 120px;
+	background: #f7f7f7;
+	margin-left: 8px;
+}
+
+.cartTotal {
+	display: flex;
+	justify-content: space-between;
+	margin: 32px 0;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+.cartActions {
+	display: flex;
+	gap: 12px;
+}
+
+.viewBagBtn,
+.checkoutBtn {
+	flex: 1;
+	height: 43px;
+	font-weight: 600;
+	font-size: 14px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.viewBagBtn {
+	background: white;
+	border: 1px solid #1d1f22;
+  transition: background 0.3s ease;
+}
+
+.viewBagBtn:hover {
+	background: #1d1f22;
+	color: white;
+  transition: background 0.3s ease;
+}
+
+.viewBagBtn:active {
+	background: #5ece7b;
+	color: white;
+  transition: background 0.15s ease;
+}
+
+.checkoutBtn {
+	background: #5ece7b;
+	border: none;
+	color: white;
+  transition: background 0.3s ease;
+}
+
+.checkoutBtn:hover {
+	background: #1d1f22;
+	color: white;
+  transition: background 0.3s ease;
+}
+
+.checkoutBtn:active {
+	background: #5ece7b;
+	color: white;
+  transition: background 0.15s ease;
+}

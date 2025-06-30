@@ -8,7 +8,7 @@ import MiniCart from "./MiniCart/MiniCart";
 
 const NavBar = () => {
 	const setData = useContext(Context).setData;
-	const navigate = useNavigate();
+	const cartItems = useContext(Context).cartItems;
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.navbar_left}>
@@ -90,7 +90,7 @@ const NavBar = () => {
 					<CurrancyDropDown setData={setData} />
 				</div>
 				<div>
-					<MiniCart />
+					<MiniCart cartItems={cartItems}/>
 				</div>
 			</div>
 		</div>
