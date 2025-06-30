@@ -34,7 +34,7 @@ const Shipment = () => {
 
   return (
     <div className={ShippingCss.ShippingInfoContainer}>
-      <div className={ShippingCss.ShippingDetailsBox}>
+      <div className={ShippingCss.DetailsBox}>
         <ShippingProgress step={2} />
         <section className={ShippingCss.personalInfo}>
           <InfoEntry infoType="Contact" infoValue={orderInfo.contact} />

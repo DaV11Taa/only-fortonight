@@ -25,7 +25,7 @@ const ShippingCartInfo = ({ backGroundColor, shipping }) => {
 }, []);
 
   return (
-    <div style={backGroundColor ? { backgroundColor: backGroundColor } : {}}>
+    <div style={backGroundColor ? { backgroundColor: backGroundColor } : {}} className={Shipping.cartTotals}>
       <div className={Shipping.checkOutItemsContainer}>{totaledProducts.map((item,index)=>
       <ShippingInfoItemCart key={index} item={item}></ShippingInfoItemCart>
       )
