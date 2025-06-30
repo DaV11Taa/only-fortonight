@@ -15,35 +15,51 @@ const ShippingDetails = () => {
    const {setOrderInfo}=useContext(Context)
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
 
-    let newErrors = {};
+  let newErrors = {};
 
-    // Required validation
-    if (!data.contact?.trim()) newErrors.contact = "Contact is required";
-    if (!data.firstName?.trim()) newErrors.firstName = "First name is required";
-        if (!data.secondName?.trim()) newErrors.secondName = "Second name is required";
-            if (!data.address?.trim()) newErrors.address = "Address or number is required";
-             
-    if (!data.city?.trim()) newErrors.city = "City is required";
-       
-    if (!data.postalCode?.trim()) newErrors.postalCode = "Postal code is required";
-
+  // 1. Contact Validation
+  if (!data.contact?.trim()) {
+    newErrors.contact = "Contact is required";
+  } else {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (data.contact && !emailRegex.test(data.contact)) {
-      newErrors.contact = "Enter a valid email";
-    }
-    setErrors(newErrors);
+    const phoneRegex = /^\+?\d{7,15}$/;
+    const isEmail = emailRegex.test(data.contact);
+    const isPhone = phoneRegex.test(data.contact);
 
-    if(errors.length==0){
-      const contact=data.contact
-      const shipTo=data.address+","+data.postalCode+","
-
-      setOrderInfo({contact:contact,shipto:shipTo})
+    if (!isEmail && !isPhone) {
+      newErrors.contact = "Enter a valid email or phone number";
     }
   }
+
+  // 4. Address Validation
+  if (!data.address?.trim()) {
+    newErrors.address = "Address is required";
+  } else if (data.address.trim().length < 5) {
+    newErrors.address = "Address is too short";
+  }
+
+  // Optional: keep other validations here
+  if (!data.firstName?.trim()) newErrors.firstName = "First name is required";
+  if (!data.secondName?.trim()) newErrors.secondName = "Second name is required";
+  if (!data.city?.trim()) newErrors.city = "City is required";
+  if (!data.postalCode?.trim()) newErrors.postalCode = "Postal code is required";
+
+  setErrors(newErrors);
+
+  if (Object.keys(newErrors).length === 0) {
+    const contact = data.contact;
+    const shipTo = `${data.address}, ${data.postalCode},`;
+
+    setOrderInfo({ contact: contact, shipto: shipTo });
+     navigate("/Shipping")
+  
+  }
+};
+
 
   return (
     <div className={ShippingCss.ShippingInfoContainer}>
@@ -101,10 +117,10 @@ const ShippingDetails = () => {
             <div>Save this informations for a future fast checkout</div>
           </div>
           <ShippingFooter
-            back="Card"
-            goTo="Shipping"
+            back="Cart"
+            goTo="ShippingMethod"
             goToText="Go to shipping"
-            handleSubmit={handleSubmit}
+          
           />
         </form>
       </div>

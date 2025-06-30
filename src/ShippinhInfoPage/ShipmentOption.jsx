@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import Shipment from "./Shipping.module.css";
 
-const ShipmentOption = ({description,price,value,setShipmentCost}) => {
+const ShipmentOption = ({ description, price, value, onChange, checked }) => {
   return (
-    <div><input name="chooseShipment" type="radio-button" value={value} onClick={setShipmentCost}/><span>{description}</span><span>{price}</span></div>
-  )
-}
+    <div className={Shipment.shipmentOption}>
+      <input 
+        name="shipmentMethod"
+        type="radio" 
+        value={value} 
+        onChange={onChange}
+        checked={checked} // ← This is essential
+      />
+      <span className={Shipment.optionDescription}>{description}</span>
+      <span className={Shipment.optionPrice}>{price}</span>
+    </div>
+  );
+};
 
-export default ShipmentOption
+export default ShipmentOption;

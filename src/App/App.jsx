@@ -11,19 +11,23 @@ import ShippingDetails from "../ShippinhInfoPage/ShippingDetails.jsx";
 import ShipingPayment from "../ShippinhInfoPage/ShipingPayment.jsx";
 import { useMemo } from "react";
 import CartPage from "../Cart/CartPage.jsx";
+import Shipment from "../ShippinhInfoPage/Shipment.jsx";
+import PaymentMethod from "../ShippinhInfoPage/PaymentMethod.jsx";
 function App() {
   const [productsData, setProductsData] = useState(products);
   const [orderInfo, setOrderInfo] = useState({});
   const [cartItems, setCartItems] = useState([]);
   const additionToCard = (selectedSize, product) => {
   const selectedStock = product.sizes.find((s) => s.size === selectedSize);
-
+  if (!selectedStock || selectedStock.stock <= 0) {
+    return;
+  }
   const existingProduct = cartItems.find(
     (item) => item.id === product.id && item.selectedSize.size === selectedSize
   );
 
   // Exit early if quantity is already at stock limit
-  if (existingProduct && existingProduct.selectedSize.quantity === selectedStock.quantity) {
+  if (existingProduct && existingProduct.selectedSize.quantity === selectedStock.stock) {
     return; // Function exits here 
   }
 
@@ -123,9 +127,11 @@ function App() {
 					<Route path="/kids/:id" element={<ProductPage />} />
 					<Route path="/shipping/details" element={<ShippingDetails />} />
 					<Route path="/shiping/payment" element={<ShipingPayment />}/>
-          <Route path="/CartPage" element={ <>
+          <Route path="/Cart" element={ <>
                 <NavBar /> <CartPage />{" "}
               </>}></Route>
+              <Route path="/Shipping" element={<Shipment/>}></Route>
+              <Route path="/paymentMethod" element={<PaymentMethod/>}></Route>
 				</Routes>
 			</Context.Provider>
 		</div>

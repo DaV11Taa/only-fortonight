@@ -3,12 +3,35 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 16px 0;
-  border-bottom: 1px solid #e0e0e0;
+}
+.CartPage{
+   padding: 16px 2rem; 
+}
+.CartPage>p div{
+    width: 100px;
+    display: inline-block;
+  
+}
+.totals{
+    font-weight: 700;
+}
+.continueButton{
+    background-color: #5ECE7B;
+    color: white;
+    padding: 0.6rem 3rem;
+    
+}
+.totalLabel{
+    font-family: Raleway;
+    font-weight: 500;
+
 }
 
+.right{
+    height: 90%;
+}
 .right img{
-    height: 250px;
+    height: 100%;
 }
 .cartManipulation {
   display: flex;
@@ -30,4 +53,69 @@
 .right{
     display: flex;
 }
+/* Add these styles to your CartStyles.module.css */
+
+.imageInCart {
+  position: relative; /* Important: makes arrows position relative to this container */
+  overflow: hidden;
+  border-radius: 8px; /* Optional: rounded corners like in screenshot */
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.navArrow {
+  position: absolute;
+  bottom: 12px; /* Position at bottom */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px; /* Small rounded corners */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s ease;
+  font-family: Arial, sans-serif;
+}
+
+.navArrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.navArrow:active {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(0.98);
+}
+
+.leftArrow {
+  right: 52px; /* Position left arrow to the left of right arrow */
+}
+
+.rightArrow {
+  right: 12px; /* Position right arrow at the right edge */
+}
+
+/* Show arrows only on hover for cleaner look */
+.imageInCart .navArrow {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.imageInCart:hover .navArrow {
+  opacity: 1;
+}
+.cartItemsBox > div{
+  border-bottom: 1px solid #e0e0e0;
+    
+} .cartItemsBox > div:first-of-type{
+  border-top: 1px solid #e0e0e0;
+}
+
+
 
