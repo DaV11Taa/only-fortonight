@@ -19,8 +19,8 @@
   display: flex;
   flex-direction: column;
 }
-.ShippingDetailsBox,.DetailsBox {
-  width: 100%;
+.ShippingDetailsBox {
+  width: 45%;
   height: 70vh;
 }
 .ShippingDetailsBox p {
@@ -105,6 +105,7 @@
   margin: 2rem 8vw;
   display: flex;
   gap: 2rem;
+  width: 84vw;
 }
 .cartTotals{
   width: 45%;
@@ -249,4 +250,7 @@
 }
 .shipmentOption input[type="radio"]:checked {
   background-color: blue; 
+}
+.DetailsBox{
+  width: 100%;
 }

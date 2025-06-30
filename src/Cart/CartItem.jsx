@@ -88,36 +88,33 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap}) => {
           const stock = item.sizes.find((s) => s.size === selectedSize)?.stock || 0;
           const currentQty = item.selectedSize.quantity;
 
-        if (change === "increase") {
-          if (currentQty < stock) {
-            return {
-              ...item,
-              selectedSize: {
-                ...item.selectedSize,
-                quantity: currentQty + 1,
-              },
-            };
+          if (change === "increase") {
+            if (currentQty < stock) {
+              return {
+                ...item,
+                selectedSize: {
+                  ...item.selectedSize,
+                  quantity: currentQty + 1,
+                },
+              };
+            }
+          } else if (change === "decrease") {
+            if (currentQty > 1) {
+              return {
+                ...item,
+                selectedSize: {
+                  ...item.selectedSize,
+                  quantity: currentQty - 1,
+                },
+              };
+            }
+            return null;
           }
-        } else if (change === "decrease") {
-          if (currentQty > 1) {
-            return {
-              ...item,
-              selectedSize: {
-                ...item.selectedSize,
-                quantity: currentQty - 1,
-              },
-            };
-          }
-
-          return null;
         }
-      }
-      return item;
-    }).filter(Boolean) // ✅ changed from `.filter((item)=>!null)` to `.filter(Boolean)`
-  );
-  console.log(Cartitems);
-  
-}
+        return item;
+      }).filter(Boolean)
+    );
+  }
 
   const handleImageSwap = (direction) => {
     if (direction === "right") {
