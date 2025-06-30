@@ -21,6 +21,16 @@
 	font-size: 16px;
 }
 
+.cartItems {
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.cartItems::-webkit-scrollbar {
+  display: none;
+}
+
 .cartItem {
 	display: flex;
 	margin-bottom: 40px;

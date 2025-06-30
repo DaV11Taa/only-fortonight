@@ -92,7 +92,7 @@ function localAdditionToCard(change) {
         }
       }
       return item;
-    }).filter(Boolean) // ✅ changed from `.filter((item)=>!null)` to `.filter(Boolean)`
+    }).filter(Boolean)
   );
   console.log(Cartitems);
   

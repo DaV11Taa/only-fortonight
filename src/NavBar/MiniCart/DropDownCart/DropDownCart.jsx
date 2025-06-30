@@ -32,6 +32,7 @@ const DropDownCart = () => {
         <span className={styles.itemCount}>{cartItems.reduce((count, item) => count + item.quantity, 0)} Items</span>
       </div>
 
+      <div className={styles.cartItems}>
       {cartItems.map((item, index) => (
         <div key={index} className={styles.cartItem}>
           <div className={styles.itemInfo}>
@@ -54,6 +55,7 @@ const DropDownCart = () => {
           </div>
           
           <div className={styles.quantityControls}>
+            {/* i need to add function on this 2 button */}
             <button className={styles.quantityBtn}>+</button>
             <span className={styles.quantity}>{item.quantity}</span>
             <button className={styles.quantityBtn}>-</button>
@@ -64,6 +66,7 @@ const DropDownCart = () => {
           </div>
         </div>
       ))}
+      </div>
 
       <div className={styles.cartTotal}>
         <p>Total</p>
@@ -72,8 +75,8 @@ const DropDownCart = () => {
 
       <div className={styles.cartActions}>
         <button className={styles.viewBagBtn} onClick={() => navigate("/CartPage")}>VIEW BAG</button>
-        {/* <button className={styles.checkoutBtn} onClick={() => navigate("/shipping/details")}>CHECK OUT</button> */}
-        <button className={styles.checkoutBtn} onClick={() => console.log("dundula")}>CHECK OUT</button>
+        <button className={styles.checkoutBtn} onClick={() => navigate("/shipping/details")}>CHECK OUT</button>
+        {/* <button className={styles.checkoutBtn} onClick={() => console.log(dundula)}>CHECK OUT</button> */}
       </div>
     </div>
   );

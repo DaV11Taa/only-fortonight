@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "./MiniCart.module.css";
 import DropDownCart from "./DropDownCart/DropDownCart";
 
-const MiniCart = () => {
-	const CartItems = []
+const MiniCart = ({cartItems}) => {
+	const CartItems = cartItems
     const [isOpen, setIsOpen] = useState(false);
 
 	return (
