@@ -20,8 +20,9 @@
   flex-direction: column;
 }
 .ShippingDetailsBox {
-  width: 45%;
-  height: 70vh;
+  width: 50%;
+  padding: 0 2rem;
+  /* height: 70vh; */
 }
 .ShippingDetailsBox p {
   font: Roboto;
@@ -57,9 +58,9 @@
 
 .required {
   right: 0.75rem;
-
+  height: 1rem;
   color: #ef4444;
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: bold;
 }
 
@@ -102,16 +103,14 @@
   flex-direction: column;
 }
 .ShippingInfoContainer {
-  margin: 2rem 8vw;
   display: flex;
-  gap: 2rem;
-  width: 84vw;
+  width: 100vw;
+  min-height: 100vh;
 }
-.cartTotals{
-  width: 45%;
-
+.cartTotals {
+  width: 50%;
+  padding: 2.5rem 2rem;
 }
-
 
 .imgContainer {
   position: relative;
@@ -164,18 +163,19 @@
   scrollbar-width: 0;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
+  padding-top: 2.5rem;
 }
 
 .ShippingInfoContainer::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
-.costs{
-  border-top: 2px solid  rgb(199, 199, 199);
-   border-bottom: 1px solid  rgb(199, 198, 198);
-   padding-bottom: 1rem;
-   margin-top: 1rem;
+.costs {
+  border-top: 2px solid rgb(199, 199, 199);
+  border-bottom: 1px solid rgb(199, 198, 198);
+  padding-bottom: 1rem;
+  margin-top: 1rem;
 }
-.entry{
+.entry {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0rem;
@@ -185,16 +185,15 @@
   color: #616161;
   font-weight: 500;
 }
-.amount{
-  font-size:16px;
+.amount {
+  font-size: 16px;
   font-weight: 500;
   color: black !important;
 }
-.infoEntry span:first-of-type{
+.infoEntry span:first-of-type {
   color: #818181;
   width: 2rem;
 }
-
 
 .personalInfo {
   background-color: #f8f9fa;
@@ -218,7 +217,7 @@
 
 /* Shipping Options styling */
 .personalInfo .infoEntry:not(:first-of-type) {
-  border-top: 1px solid #ccc; 
+  border-top: 1px solid #ccc;
 }
 .shipmentOption {
   display: flex;
@@ -235,7 +234,7 @@
 
 .shipmentOption input[type="radio"] {
   margin-right: 15px;
-  accent-color: #007bff;
+  accent-color: white;
 }
 
 .optionDescription {
@@ -249,8 +248,9 @@
   color: #222;
 }
 .shipmentOption input[type="radio"]:checked {
-  background-color: blue; 
+  background-color: blue;
 }
-.DetailsBox{
-  width: 100%;
+.DetailsBox {
+  width: 50%;
+  padding: 0 2rem;
 }

@@ -74,7 +74,7 @@ const DropDownCart = () => {
       </div>
 
       <div className={styles.cartActions}>
-        <button className={styles.viewBagBtn} onClick={() => navigate("/CartPage")}>VIEW BAG</button>
+        <button className={styles.viewBagBtn} onClick={() => navigate("/Cart")}>VIEW BAG</button>
         <button className={styles.checkoutBtn} onClick={() => navigate("/shipping/details")}>CHECK OUT</button>
         {/* <button className={styles.checkoutBtn} onClick={() => console.log(dundula)}>CHECK OUT</button> */}
       </div>

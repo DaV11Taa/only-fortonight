@@ -11,8 +11,8 @@ const PaymentMethod = () => {
 
   return (
     <div className={Shipping.ShippingInfoContainer}>
-      <div style={{ width: "45%" }}>
-        <div className={Shipping.DetailsBox}>
+      <div className={Shipping.DetailsBox}>
+        <div >
           <ShippingProgress step={3} />
           <div className={Shipping.personalInfo}>
             <InfoEntry infoType="Contact" infoValue={orderInfo.contact} />
