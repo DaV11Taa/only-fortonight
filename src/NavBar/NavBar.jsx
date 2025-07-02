@@ -9,6 +9,7 @@ import MiniCart from "./MiniCart/MiniCart";
 const NavBar = () => {
 	const setData = useContext(Context).setData;
 	const cartItems = useContext(Context).cartItems;
+	const setCartItems = useContext(Context).setCartItems;
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.navbar_left}>
@@ -87,10 +88,10 @@ const NavBar = () => {
 			</div>
 			<div className={styles.navbar_right}>
 				<div>
-					<CurrancyDropDown setData={setData} />
+					<CurrancyDropDown setData={setData} setCartItems={setCartItems}/>
 				</div>
 				<div>
-					<MiniCart cartItems={cartItems}/>
+					<MiniCart cartItems={cartItems} setCartItems={setCartItems}/>
 				</div>
 			</div>
 		</div>

@@ -13,6 +13,9 @@ import { useMemo } from "react";
 import CartPage from "../Cart/CartPage.jsx";
 import Shipment from "../ShippinhInfoPage/Shipment.jsx";
 import PaymentMethod from "../ShippinhInfoPage/PaymentMethod.jsx";
+
+
+
 function App() {
   const [productsData, setProductsData] = useState(products);
   const [orderInfo, setOrderInfo] = useState({});
@@ -132,6 +135,7 @@ function App() {
               </>}></Route>
               <Route path="/Shipping" element={<Shipment/>}></Route>
               <Route path="/paymentMethod" element={<PaymentMethod/>}></Route>
+              
 				</Routes>
 			</Context.Provider>
 		</div>

@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.header {
+  width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 1.5rem;
+  background-color: white;
+  align-items: flex-start !important;
+}
+
+.payment h2 {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  align-self: flex-start !important;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25.6px;
+  letter-spacing: -0.9px;
+  width: 160px;
+  height: 26px;
+  top: 366px;
+  left: 168px;
+}
+.payment {
+  transform: none !important;
+}
+
+.creditCard {
+  width: 445px;
+  height: 58px;
+  top: 415px;
+  left: 165px;
+  background: linear-gradient(
+    90.04deg,
+    rgba(86, 178, 128, 0.2) 0.04%,
+    rgba(86, 178, 128, 0.4) 97.95%
+  );
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+  border-radius: 7px;
+}
+
+.creditCard p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #56b280;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 15.6px;
+  letter-spacing: -0.9px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form div {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid black !important;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.nameInputRow > div {
+  flex: 1;
+  position: relative;
+}
+
+.nameInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+.nameInputRow {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+}
+
+.inputWithCard {
+  width: 100%;
+  padding: 15px 40px 15px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.inputIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.cvv {
+  position: relative;
+  width: 100%;
+}
+
+.cvvInput {
+  width: 100%;
+  padding: 15px 40px 15px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.cvvIconic {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}

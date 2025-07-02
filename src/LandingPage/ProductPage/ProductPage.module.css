@@ -159,4 +159,16 @@
 	color: white;
 	cursor: pointer;
 	border: 1px solid #5ECE7B;
+	transition: background 0.3s ease;
 }
+.addToCartButton:hover {
+	color: white;
+	background-color: #1d1f22;
+	border-color: #1d1f22;
+	transition: background 0.3s ease;
+}
+.addToCartButton:active {
+	color: white;
+	background-color: #3E8A5A;
+	transition: background 0.15s ease;
+}		
