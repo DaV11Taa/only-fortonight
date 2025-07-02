@@ -18,6 +18,9 @@ export const products = [
 			{ size: "L", stock: 0 },
 		],
 		price: 50.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 50.0,
 
@@ -40,8 +43,10 @@ export const products = [
 			{ size: "M", stock: 5 },
 			{ size: "L", stock: 0 },
 		],
-
 		price: 65.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 65.0,
 		description:
@@ -64,6 +69,9 @@ export const products = [
 			{ size: "M", stock: 9 },
 		],
 		price: 35.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 35.0,
 		description:
@@ -85,6 +93,9 @@ export const products = [
 			{ size: "L", stock: 10 },
 		],
 		price: 90.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 90.0,
 
@@ -109,6 +120,9 @@ export const products = [
 			{ size: "L", stock: 0 },
 		],
 		price: 40.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 40.0,
 		description:
@@ -133,6 +147,9 @@ export const products = [
 			{ size: "40", stock: 10 },
 		],
 		price: 120.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 120.0,
 		description:
@@ -158,6 +175,9 @@ export const products = [
 			{ size: "XL", stock: 10 },
 		],
 		price: 45.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 45.0,
 		description:
@@ -180,6 +200,9 @@ export const products = [
 			{ size: "XL", stock: 10 },
 		],
 		price: 60.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		description:
 			"Muscle-enhancing compression shirt with sweat-wicking fabric for optimal performance.",
@@ -201,6 +224,9 @@ export const products = [
 			{ size: "L", stock: 10 },
 		],
 		price: 70.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 70.0,
 		description:
@@ -224,6 +250,9 @@ export const products = [
 			{ size: "43", stock: 10 },
 		],
 		price: 130.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 130.0,
 		description:
@@ -246,6 +275,9 @@ export const products = [
 			{ size: "XL", stock: 10 },
 		],
 		price: 80.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 80.0,
 
@@ -269,6 +301,9 @@ export const products = [
 			{ size: "L", stock: 10 },
 		],
 		price: 38.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 38.0,
 		description:
@@ -293,6 +328,9 @@ export const products = [
 			{ size: "M", stock: 10 },
 		],
 		price: 25.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 25.0,
 		description:
@@ -315,6 +353,9 @@ export const products = [
 			{ size: "L", stock: 10 },
 		],
 		price: 35.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 35.0,
 		description:
@@ -336,6 +377,9 @@ export const products = [
 			{ size: "L", stock: 10 },
 		],
 		price: 45.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 45.0,
 		description:
@@ -359,6 +403,9 @@ export const products = [
 			{ size: "35", stock: 10 },
 		],
 		price: 55.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 55.0,
 		description:
@@ -376,11 +423,14 @@ export const products = [
 			"/images/KIDS_Polo_Shirt_3.jpg",
 		],
 		sizes: [
-			{ size: "XS", stock: 10 },
-			{ size: "S", stock: 10 },
-			{ size: "M", stock: 10 },
+			{ size: "XS", stock: 0 },
+			{ size: "S", stock: 0 },
+			{ size: "M", stock: 0 },
 		],
 		price: 30.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 30.0,
 		description:
@@ -398,11 +448,14 @@ export const products = [
 			"/images/KIDS_Swim_Shorts_3.jpg",
 		],
 		sizes: [
-			{ size: "S", stock: 10 },
-			{ size: "M", stock: 10 },
-			{ size: "L", stock: 10 },
+			{ size: "S", stock: 4 },
+			{ size: "M", stock: 5 },
+			{ size: "L", stock: 7 },
 		],
 		price: 28.0,
+		get inStock() {
+			return this.sizes.some(size => size.stock > 0);
+		},
 		currency: "USD",
 		originalPrice: 28.0,
 		description:

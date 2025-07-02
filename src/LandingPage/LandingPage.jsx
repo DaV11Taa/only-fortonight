@@ -4,6 +4,7 @@ import Context from "../UseContext/Context.js";
 import ProductCard from "./ProductCards/ProductCard.jsx";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar.jsx";
+import OutOfStockCard from "./ProductCards/OutofStockCard/OutOfStockCard.jsx";
 
 const LandingPage = ({ sort }) => {
 	const data = useContext(Context).data || [];
@@ -18,6 +19,7 @@ const LandingPage = ({ sort }) => {
 			</div>
 			<div className={styles.productCard_container}>
 				{filteredData.map((product) => (
+					product.inStock === true ?
 					<Link
 						to={`/${product.gender.toLowerCase()}/${product.id}`}
 						key={product.id}
@@ -25,6 +27,13 @@ const LandingPage = ({ sort }) => {
 					>
 						<ProductCard product={product} />
 					</Link>
+					:
+					<div
+						key={product.id}
+						className={styles.productCard}
+					>
+						<OutOfStockCard product={product} />
+					</div>
 				))}
 			</div>
 		</div>
