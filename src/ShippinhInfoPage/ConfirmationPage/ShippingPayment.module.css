@@ -71,18 +71,12 @@
   text-decoration: none;
   border-radius: 4px;
   width: 50%;
+  color: white;
   
 }
 
 .button:hover {
   background-color: #4a9d6d;
   border-color: #4a9d6d;
-}
-.button a {
-  color: white !important;
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  height: 100%;
 }
 

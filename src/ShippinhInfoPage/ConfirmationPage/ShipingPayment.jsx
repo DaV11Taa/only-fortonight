@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect ,useContext} from "react";
 import ShippingPayment from "./ShippingPayment.module.css"
 import { useNavigate } from "react-router-dom";
+import Context from "../../UseContext/Context";
 const ShipingPayment = () => {
-  const [orderNumber, setOrderNumber,setCartItems] = useState(1);
+  const [orderNumber, setOrderNumber] = useState(1);
+  const { setCartItems } = useContext(Context);
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -58,7 +60,7 @@ const ShipingPayment = () => {
       </svg></div>
       <div className={ShippingPayment.title}><h1>Payment Confirmed</h1></div>
       <div className={ShippingPayment.order}> <p>ORDER #{orderNumber}</p></div>
-     <div className={ShippingPayment.button}><button >Back to shoping</button></div>
+     <button className={ShippingPayment.button} onClick={handleBackToShopping} >Back to shoping</button>
       
     </div>
   );
