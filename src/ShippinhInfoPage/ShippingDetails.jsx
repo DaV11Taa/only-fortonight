@@ -66,7 +66,7 @@ const ShippingDetails = () => {
         "," +
         data?.country;
       setOrderInfo({ contact: contact, shipto: shipTo });
-      navigate("/Shipping");
+      navigate("/shipping");
     }
   };
 

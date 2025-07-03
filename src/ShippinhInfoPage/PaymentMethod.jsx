@@ -26,7 +26,6 @@ const PaymentMethod = () => {
           </div>
         </div>
         <PaymentCard />
-        <ShippingFooter back="Shipping" goToText="Pay Now" />
       </div>
       {/* right section which contains cart items and total price */}
       <ShippingCartInfo

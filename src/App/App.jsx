@@ -129,12 +129,12 @@ function App() {
 					<Route path="/women/:id" element={<ProductPage />} />
 					<Route path="/men/:id" element={<ProductPage />} />
 					<Route path="/kids/:id" element={<ProductPage />} />
-					<Route path="/shipping/details" element={<ShippingDetails />} />
+					<Route path="/details" element={<ShippingDetails />} />
 					<Route path="/shiping/payment" element={<ShipingPayment />}/>
           <Route path="/Cart" element={ <>
                 <NavBar /> <CartPage />{" "}
               </>}></Route>
-              <Route path="/Shipping" element={<Shipment/>}></Route>
+              <Route path="/shipping" element={<Shipment/>}></Route>
               <Route path="/paymentMethod" element={<PaymentMethod/>}></Route>
               <Route path="/paymentCard" element={<Payment></Payment>}></Route>
               

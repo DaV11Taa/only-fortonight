@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./PaymentCard.module.css";
 import { useNavigate } from "react-router-dom";
+import ShippingFooter from "../Footer/ShippingFooter";
 
 const PaymentCard = () => {
 	const [errors, setErrors] = useState({});
@@ -96,7 +97,7 @@ const PaymentCard = () => {
 						{errors.cvv && <span className={styles.error}>{errors.cvv}</span>}
 					</div>
 				</div>
-				<button type="submit" className={styles.submitButton}>Submit</button>
+				<ShippingFooter step={4} goToText="Pay Now" back="shipping"/>
 			</form>
 		</div>
 	);

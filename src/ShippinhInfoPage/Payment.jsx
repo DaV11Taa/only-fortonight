@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Payment.module.css";
+import ShippingFooter from "./Footer/ShippingFooter";
 const Payment = () => {
   return (
     <div className={styles.payment}>
@@ -28,7 +29,7 @@ const Payment = () => {
         </svg>
         <p>Credit Card</p>{" "}
       </div>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <div className={styles.card}>
           <input className={styles.inputWithCard } type="text" placeholder="Card Number" />{" "}
           <svg  className={styles.inputIcon}
@@ -84,7 +85,9 @@ const Payment = () => {
               fill="#616161"
             />
           </svg>
-        </div></div>
+        </div>
+        <ShippingFooter step={4}/>
+        </div>
         
       </form>
     </div>
