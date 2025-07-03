@@ -137,7 +137,7 @@ function App() {
               <Route path="/shipping" element={<Shipment/>}></Route>
               <Route path="/paymentMethod" element={<PaymentMethod/>}></Route>
               <Route path="/paymentCard" element={<Payment></Payment>}></Route>
-              
+              {/* here goes my nerves */}
 				</Routes>
 			</Context.Provider>
 		</div>
