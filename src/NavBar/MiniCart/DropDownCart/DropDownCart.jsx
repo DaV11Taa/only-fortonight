@@ -119,7 +119,7 @@ const DropDownCart = ({ cartItems, setCartItems }) => {
 
       <div className={styles.cartActions}>
         <button className={styles.viewBagBtn} onClick={() => navigate("/Cart")}>VIEW BAG</button>
-        <button className={styles.checkoutBtn} onClick={() => navigate("/shipping/details")}>CHECK OUT</button>
+        <button className={styles.checkoutBtn} onClick={() => if(cartItems.length===0) {navigate("/shipping/details")}else alert("Your cart is empty")}>CHECK OUT</button>
       </div>
     </div>
   );
