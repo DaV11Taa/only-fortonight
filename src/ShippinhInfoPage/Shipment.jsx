@@ -12,7 +12,6 @@ import { useMemo } from "react";
 const Shipment = () => {
   const { orderInfo, setOrderInfo, currentCurrency } = useContext(Context);
   const ShipmentPrices = useMemo(() => {
-    console.log("Current currency:", currentCurrency);
 
     switch (currentCurrency) {
       case "$":
@@ -51,7 +50,6 @@ const Shipment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Selected shipment:", orderInfo.Shipment);
     navigate("/paymentMethod");
   };
   // Function to handle shipment option selection,which on defauld is free shipping
