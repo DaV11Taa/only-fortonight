@@ -2,12 +2,16 @@ import React from "react";
 import ShippingProgress from "./ShippingProgress/ShippingProgress";
 import ShippingCartInfo from "./RightSextionCardSum/ShippingCartInfo";
 import styles from "./Shipping.module.css";
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import Context from "../UseContext/Context";
 import ShipingPayment from "./ShipingPayment";
 
 const ConfirmationPaje = () => {
-    const{orderInfo}=useContext(Context);
+    const{orderInfo,setCartItems}=useContext(Context);
+    useEffect(() => {
+        // Clear the cart items after confirmation
+        setCartItems([]);
+    }, []);
   return (
     <div className={styles.ShippingInfoContainer}>
       <div>

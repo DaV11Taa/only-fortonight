@@ -25,6 +25,8 @@ const PaymentMethod = () => {
             />
           </div>
         </div>
+
+       
         <PaymentCard />
       </div>
       {/* right section which contains cart items and total price */}
