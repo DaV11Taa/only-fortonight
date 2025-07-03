@@ -3,13 +3,13 @@ import styles from "../LandingPage/ProductPage/ProductPage.module.css";
 import cartStyles from "./CartStyles.module.css"
 import Context from "../UseContext/Context";
 
-const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap}) => {
+const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap,index}) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  // ✅ Keep selectedSize in sync with the actual product size
+  // Keep selectedSize in sync with the actual product size
   const [selectedSize, setSelectedSize] = useState(product.selectedSize.size);
   const { currentCurrency, setCartItems } = useContext(Context);
 
-  // ✅ Update selectedSize whenever the product changes
+  // update selectedSize whenever the product changes
   useEffect(() => {
     setSelectedSize(product.selectedSize.size);
   }, [product.selectedSize.size]);
@@ -21,7 +21,7 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap}) => {
         (item) => item.id === product.id && item.selectedSize.size === selectedSize
       );
       
-      if (!currentItem) return prev; // Safety check
+      if (!currentItem) return prev; 
       
       // Find if there's already an item with the new size
       const existingItemWithNewSize = prev.find(
@@ -77,7 +77,7 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap}) => {
       return updatedCart;
     });
 
-    // ✅ Update local state immediately
+    // Update local state immediately
     setSelectedSize(newSize);
   };
 
@@ -152,7 +152,7 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap}) => {
               {product.sizes.map((sizes) => (
                 <button 
                   style={fontSize ? { fontSize: fontSize } : {}}
-                  key={sizes.size}
+                  key={index}
                   onClick={() => handleSizeSelect(sizes.size)}
                   className={styles.sizeOption}
                   data-selected={selectedSize === sizes.size}

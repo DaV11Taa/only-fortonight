@@ -8,8 +8,8 @@ const Cartitems = () => {
   return (
     <div className={cartStyles.cartItemsBox}>
       {
-        cartItems.map((item)=> <CartItem product={item} 
-        imageSwap={true} containerHeight="300px"/>)
+        cartItems.map((item,index)=> <CartItem product={item} 
+        imageSwap={true} containerHeight="300px" index={index}/>)
       }
     </div>
   )
