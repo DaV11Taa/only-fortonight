@@ -64,9 +64,9 @@
 }
 
 .imageInCart {
-  position: relative; /* Important: makes arrows position relative to this container */
+  position: relative; 
   overflow: hidden;
-  border-radius: 8px; /* Optional: rounded corners like in screenshot */
+  border-radius: 8px;
   height: 100%;
   aspect-ratio: 1/1;
   
@@ -80,7 +80,7 @@
   border: none;
   width: 32px;
   height: 32px;
-  border-radius: 4px; /* Small rounded corners */
+  border-radius: 2px; 
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
