@@ -6,6 +6,7 @@ import ShippingCartInfo from "./RightSextionCardSum/ShippingCartInfo";
 import Shipping from "./Shipping.module.css";
 import Context from "../UseContext/Context";
 import { useContext } from "react";
+import PaymentCard from "./PaymentCard/PaymentCard";
 const PaymentMethod = () => {
   const { orderInfo } = useContext(Context);
 
@@ -24,6 +25,7 @@ const PaymentMethod = () => {
             />
           </div>
         </div>
+        <PaymentCard />
         <ShippingFooter back="Shipping" goToText="Pay Now" />
       </div>
       {/* right section which contains cart items and total price */}
