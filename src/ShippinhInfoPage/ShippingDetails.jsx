@@ -43,7 +43,7 @@ const ShippingDetails = () => {
       newErrors.address = "Address is too short";
     }
 
-    // Optional: keep other validations here
+    // keep other validations here
     if (!data.firstName?.trim()) newErrors.firstName = "First name is required";
     if (!data.secondName?.trim())
       newErrors.secondName = "Second name is required";
