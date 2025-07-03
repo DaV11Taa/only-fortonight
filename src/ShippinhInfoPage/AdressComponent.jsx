@@ -1,9 +1,25 @@
 import React from 'react'
-
-const AdressComponent = ({name,options}) => {
+import Styles from "./Shipping.module.css";
+const AdressComponent = ({name , options , placeholder }) => {
   return (
-    <div><select name={name} id={name}>
-      {options.map((option)=><option value={option}>{option}</option>)}</select></div>
+    <div className={Styles.addressComponent}>
+      <select 
+        name={name} 
+        id={name}
+        className={Styles.addressSelect}
+        defaultValue="" 
+      >
+      
+         <option value="" disabled hidden>{placeholder}</option>
+        {options.map((option, index) => (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+       <label className={Styles.addressSelectLabel} htmlFor={name}>
+        {placeholder}
+      </label></div>
   )
 }
 

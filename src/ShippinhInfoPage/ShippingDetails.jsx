@@ -1,13 +1,14 @@
 import React from "react";
-import ShippingProgress from "./ShippingProgress";
-import ShippingFooter from "./ShippingFooter";
+import ShippingProgress from "./ShippingProgress/ShippingProgress.jsx";
+import ShippingFooter from "./Footer/ShippingFooter.jsx";
 import ShippingCss from "./Shipping.module.css";
 import AdressComponent from "./AdressComponent";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ShippingCartInfo from "./ShippingCartInfo";
+import ShippingCartInfo from "./RightSextionCardSum/ShippingCartInfo.jsx";
 import { useContext } from "react";
 import Context from "../UseContext/Context";
+import { countryProvinces } from "./AdressData.js";
 
 const ShippingDetails = () => {
   const [errors, setErrors] = useState({});
@@ -54,7 +55,16 @@ const ShippingDetails = () => {
 
     if (Object.keys(newErrors).length === 0) {
       const contact = data.contact;
-      const shipTo = data.address + "," + data.postalCode + "," + data?.city;
+      const shipTo =
+        data.address +
+        "," +
+        data.postalCode +
+        "," +
+        data?.city +
+        "," +
+        data?.province +
+        "," +
+        data?.country;
       setOrderInfo({ contact: contact, shipto: shipTo });
       navigate("/Shipping");
     }
@@ -101,7 +111,10 @@ const ShippingDetails = () => {
           <div>
             <input type="text" placeholder="Shipping note (optional)" />
           </div>
-          <div className={ShippingCss.nameInputRow} style={{ marginTop: "1.1rem" }}>
+          <div
+            className={ShippingCss.nameInputRow}
+            style={{ marginTop: "1.1rem" }}
+          >
             <div className={ShippingCss.inputBox}>
               <input type="text" placeholder="City" name="city" />
               <div className={ShippingCss.required}>{errors?.city}</div>
@@ -111,7 +124,11 @@ const ShippingDetails = () => {
               <div className={ShippingCss.required}>{errors.postalCode}</div>
             </div>
             <div>
-              <AdressComponent placeholder="Province" options={[]} />
+              <AdressComponent
+                name="province"
+                options={countryProvinces}
+                placeholder="Select Province"
+              />
             </div>
           </div>
           <AdressComponent placeholder="Country/Region " options={[]} />

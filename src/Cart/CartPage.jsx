@@ -20,8 +20,8 @@ const CartPage = () => {
       <h1>Cart</h1>
       { totalQuantity === 0 ? <h2>Your cart is empty</h2>:
       <Cartitems />}
-      <div><p >Quantity:</p>  <span className={cartStyles.totals}>{totalQuantity}</span></div>
-        <div> <p className={cartStyles.totalLabel}>Total:</p>  <span className={cartStyles.totals}>{currentCurrency} {totalPrice}</span></div>
+      <div className={cartStyles.totalsRow}><p >Quantity:</p>  <span className={cartStyles.totals}>{totalQuantity}</span></div>
+        <div className={cartStyles.totalsRow}> <p className={cartStyles.totalLabel}>Total:</p>  <span className={cartStyles.totals}>{currentCurrency} {totalPrice}</span></div>
         <button onClick={sendToShipping} className={
             cartStyles.continueButton
         }> CONTINUE</button>

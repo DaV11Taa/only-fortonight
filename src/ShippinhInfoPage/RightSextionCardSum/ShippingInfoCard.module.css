@@ -1,0 +1,89 @@
+/* styles for the ShippingInfoContainer */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.cartTotals {
+  width: 50%;
+  padding: 2.5rem 2rem;
+}
+
+.imgContainer {
+  position: relative;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.infoCardAmountCircle {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #56b280;
+  color: white;
+  height: 1.5rem;
+  width: 1.5rem;
+  text-align: center;
+  border-radius: 50%;
+}
+.imgContainer img {
+  height: 80%;
+}
+.ShippingInfoItemCart {
+  height: 150px;
+  display: flex;
+  gap: 3rem;
+  width: 100%;
+}
+.ShippingInfoItemCart h2 {
+  font-size: 2rem;
+}
+.ShippingInfoItemCart h3 {
+  font-size: 1.5rem;
+  color: #56b280;
+  font-weight: 600;
+  text-align: start;
+}
+
+.imgContainer {
+  height: 100%;
+  background-color: white;
+  width: 150px;
+}
+.checkOutItemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 50vh;
+  overflow-y: scroll;
+  scrollbar-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-top: 2.5rem;
+}
+
+.ShippingInfoContainer::-webkit-scrollbar {
+  display: none;
+}
+.costs {
+  border-top: 2px solid rgb(199, 199, 199);
+  border-bottom: 1px solid rgb(199, 198, 198);
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+}
+.amount {
+  font-size: 16px;
+  font-weight: 500;
+  color: black !important;
+}
+.entry {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0rem;
+  width: 100%;
+}
+.entry span {
+  color: #616161;
+  font-weight: 500;
+}

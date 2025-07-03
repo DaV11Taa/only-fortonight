@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import Context from "../UseContext/Context";
+import Context from "../../UseContext/Context";
 import ShippingInfoItemCart from "./ShippingInfoItemCart";
-import Shipping from "./Shipping.module.css";
-const ShippingCartInfo = ({ backGroundColor, shipping, paid  }) => {
+import Shipping from "./ShippingInfoCard.module.css";
+
+const ShippingCartInfo = ({ backGroundColor, shipping, paid }) => {
   const { totalPrice, currentCurrency, cartItems } = useContext(Context);
   // calculating the total price of the cart items by summing totalPrice which is calculated in app
   // and adding shipping cost

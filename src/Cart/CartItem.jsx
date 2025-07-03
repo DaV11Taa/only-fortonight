@@ -3,48 +3,49 @@ import styles from "../LandingPage/ProductPage/ProductPage.module.css";
 import cartStyles from "./CartStyles.module.css"
 import Context from "../UseContext/Context";
 
-const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap,index}) => {
+const CartItem = ({ product,index}) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   // Keep selectedSize in sync with the actual product size
   const [selectedSize, setSelectedSize] = useState(product.selectedSize.size);
   const { currentCurrency, setCartItems } = useContext(Context);
 
-  // update selectedSize whenever the product changes
+  // updating  selectedSize when the product changes
   useEffect(() => {
     setSelectedSize(product.selectedSize.size);
   }, [product.selectedSize.size]);
 
   const handleSizeSelect = (newSize) => {
     setCartItems((prev) => {
-      // Find the current item being changed
+      // Finding the current item being changed which is differentiated by id and selectedSize
       const currentItem = prev.find(
         (item) => item.id === product.id && item.selectedSize.size === selectedSize
       );
       
       if (!currentItem) return prev; 
       
-      // Find if there's already an item with the new size
+      // Finding if there's already an item with the new size to be slected
       const existingItemWithNewSize = prev.find(
         (item) => item.id === product.id && item.selectedSize.size === newSize
       );
       
-      // Get stock limit for the new size
+      //  stock limit for the new size
       const newSizeStock = product.sizes.find((s) => s.size === newSize)?.stock || 0;
       
-      // Create the updated cart
+      // Updating cart
       const updatedCart = prev.reduce((acc, item) => {
-        // Skip the current item being changed
+        // Skipping the current item being changed,as we don't need to keep it in the cart 
         if (item.id === product.id && item.selectedSize.size === selectedSize) {
           return acc;
         }
         
-        // If this is an existing item with the new size, merge quantities
+        // If this is an existing item with the new size, we are adding quantities
         if (item.id === product.id && item.selectedSize.size === newSize) {
+          // using Math.min to ensure we don't exceed stock limits
           const mergedQuantity = Math.min(
             item.selectedSize.quantity + currentItem.selectedSize.quantity,
             newSizeStock
           );
-          
+          //adding the updated item with summed quantity to the cart
           acc.push({
             ...item,
             selectedSize: {
@@ -55,21 +56,20 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap,index}) =
           return acc;
         }
         
-        // Keep all other items unchanged
+        // Keeping all other items unchanged
         acc.push(item);
         return acc;
       }, []);
       
-      // If there wasn't an existing item with the new size, add the changed item
+      // If there wasn't an existing item with the new size, we just add the item and change its size
       if (!existingItemWithNewSize) {
-        const newQuantity = Math.min(currentItem.selectedSize.quantity, newSizeStock);
         
         updatedCart.push({
           ...currentItem,
           selectedSize: {
             ...currentItem.selectedSize,
             size: newSize,
-            quantity: newQuantity,
+            quantity:Math.min(currentItem.selectedSize.quantity, newSizeStock) // Ensuring we don't exceed stock limits,
           },
         });
       }
@@ -77,34 +77,34 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap,index}) =
       return updatedCart;
     });
 
-    // Update local state immediately
+    // Updating local state immediately
     setSelectedSize(newSize);
   };
-
+//this function adds or removes quantity of the item in the cart trigered by the buttons in the cart
   function localAdditionToCard(change) {
     setCartItems((prev) =>
       prev.map((item) => {
         if (item.id === product.id && item.selectedSize.size === selectedSize) {
           const stock = item.sizes.find((s) => s.size === selectedSize)?.stock || 0;
-          const currentQty = item.selectedSize.quantity;
+          const QntOfGivenItem = item.selectedSize.quantity;
 
           if (change === "increase") {
-            if (currentQty < stock) {
+            if ( QntOfGivenItem < stock) {
               return {
                 ...item,
                 selectedSize: {
                   ...item.selectedSize,
-                  quantity: currentQty + 1,
+                  quantity:  QntOfGivenItem + 1,
                 },
               };
             }
           } else if (change === "decrease") {
-            if (currentQty > 1) {
+            if ( QntOfGivenItem > 1) {
               return {
                 ...item,
                 selectedSize: {
                   ...item.selectedSize,
-                  quantity: currentQty - 1,
+                  quantity:  QntOfGivenItem - 1,
                 },
               };
             }
@@ -132,27 +132,27 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap,index}) =
 
   return (
     <div className={cartStyles.itemContainer} style={{height:containerHeight}}>
-      <div className={styles.upperInfo} style={fontSize ? { fontSize: fontSize } : {}}>
+      <div className={styles.upperInfo} >
         <div>
-          <p className={styles.productName} style={fontSize ? { fontSize: fontSize } : {}}>{product.name}</p>
-          <p className={styles.productType} style={fontSize ? { fontSize: fontSize } : {}}>{product.type}</p>
+          <p className={styles.productName} >{product.name}</p>
+          <p className={styles.productType} >{product.type}</p>
         </div>
         <div className={styles.priceContainer}>
-          <span style={fontSize ? { fontSize: fontSize } : {}}>PRICE:</span>
-          <p className={styles.price} style={fontSize ? { fontSize: fontSize } : {}}>
+          <span >PRICE:</span>
+          <p className={styles.price} >
             {currentCurrency + product.price + ".00"}
           </p>
         </div>
         <div className={styles.sizeContainer}>
-          <div className="">
-            <div className="">
-              <span className={styles.sizeLabel} style={fontSize ? { fontSize: fontSize } : {}}>SIZE:</span>
+          <div >
+            <div >
+              <span className={styles.sizeLabel}>SIZE:</span>
             </div>
             <div className={styles.sizeOptions}>
               {product.sizes.map((sizes) => (
                 <button 
                   style={fontSize ? { fontSize: fontSize } : {}}
-                  key={index}
+                  key={index+product.id}
                   onClick={() => handleSizeSelect(sizes.size)}
                   className={styles.sizeOption}
                   data-selected={selectedSize === sizes.size}
@@ -173,8 +173,8 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap,index}) =
         <div className={cartStyles.imageInCart} >
           <img src={product.ArraysOfImg[currentImageIndex]} alt="" />
           
-          {/* Navigation Arrows - only show if imageSwap is true and there are multiple images */}
-          {imageSwap && product.ArraysOfImg.length > 1 && (
+          {/* only show if  there are multiple images */}
+          { product.ArraysOfImg.length > 1 && (
             <>
               {/* Left Arrow */}
               <button 
@@ -185,7 +185,7 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap,index}) =
                 &#8249; {/* Left chevron symbol */}
               </button>
               
-              {/* Right Arrow */}
+              {/* Right Arrow  */}
               <button 
                 className={cartStyles.navArrow + ' ' + cartStyles.rightArrow}
                 onClick={() => handleImageSwap('right')}

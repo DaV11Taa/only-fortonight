@@ -9,9 +9,16 @@
 }
 .CartPage>p div{
     width: 100px;
-    display: inline-block;
+    display: flex;
   
 }
+.totalsRow{
+  display: flex;
+}
+.totalsRow p{
+  width: 100px;
+}
+
 .totals{
     font-weight: 700;
 }
@@ -94,14 +101,14 @@
 }
 
 .leftArrow {
-  right: 52px; /* Position left arrow to the left of right arrow */
+  right: 52px; /* Position left arrow */
 }
 
 .rightArrow {
-  right: 12px; /* Position right arrow at the right edge */
+  right: 12px; /* Position right arrow */
 }
 
-/* Show arrows only on hover for cleaner look */
+/* Showing arrows only on hover */
 .imageInCart .navArrow {
   opacity: 0;
   transition: opacity 0.2s ease;

@@ -1,5 +1,5 @@
 import React from "react";
-import ShippingCss from "./Shipping.module.css";
+import ShippingCss from "./Progress.module.css";
 const ShippingProgress = ({ step }) => {
   // based on the current step the user is in order making, we will set the color of the text
   const getColor = (targetStep) => {
