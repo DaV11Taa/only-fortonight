@@ -30,7 +30,7 @@ const ShippingDetails = () => {
     const isEmail = emailRegex.test(data.contact);
     const isPhone = phoneRegex.test(data.contact);
 
-    if (!isEmail && !isPhone) {
+    if (!isEmail || !isPhone) {
       newErrors.contact = "Enter a valid email or phone number";
     }
   }
@@ -54,7 +54,7 @@ const ShippingDetails = () => {
     const contact = data.contact;
     const shipTo = `${data.address}, ${data.postalCode},`;
 
-    setOrderInfo({ contact: contact, shipto: shipTo });
+    setOrderInfo({ contact: contact, shipto: shipTo ,Shipmemt:0});
      navigate("/Shipping")
   
   }

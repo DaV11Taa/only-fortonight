@@ -10,21 +10,16 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Shipment = () => {
-  const { orderInfo, setOrderInfo } = useContext(Context); 
+  const { orderInfo, setOrderInfo } = useContext(Context);
   const navigate = useNavigate();
-
+  // on form submittion navigating to next page
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (orderInfo.Shipment) {
-      console.log("Selected shipment:", orderInfo.Shipment); 
-      navigate("/paymentMethod");
-    } else {
-      alert("Select Shipment Method");
-      return;
-    }
+    console.log("Selected shipment:", orderInfo.Shipment);
+    navigate("/paymentMethod");
   };
-
+  // Function to handle shipment option selection,which on defauld is free shipping
   const chooseShipment = (e) => {
     setOrderInfo((prev) => ({
       ...prev,
@@ -35,16 +30,17 @@ const Shipment = () => {
   return (
     <div className={ShippingCss.ShippingInfoContainer}>
       <div className={ShippingCss.DetailsBox}>
-        
         <ShippingProgress step={2} />
+        {/* Section for personal info which takes as probs orderInfo which was set in shipment details page */}
         <section className={ShippingCss.personalInfo}>
           <InfoEntry infoType="Contact" infoValue={orderInfo.contact} />
           <InfoEntry infoType="Ship to" infoValue={orderInfo.shipto} />
         </section>
         <h2>Shipping Methods</h2>
         <form onSubmit={handleSubmit}>
-          {" "}
           {/* Removed empty action */}
+          {/* we take two options for shipment, free and express shipping 
+          and take their value to set Shipments in orderInfo */}
           <ShipmentOption
             description="Standard Shipping"
             price="free"
@@ -61,7 +57,6 @@ const Shipment = () => {
           />
           <ShippingFooter
             back="details"
-            goTo="payment" 
             goToText="Go to payment"
           />
         </form>

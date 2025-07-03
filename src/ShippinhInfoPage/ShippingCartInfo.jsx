@@ -1,39 +1,51 @@
-
 import { useContext } from "react";
 import Context from "../UseContext/Context";
 import ShippingInfoItemCart from "./ShippingInfoItemCart";
-import Shipping from "./Shipping.module.css"
+import Shipping from "./Shipping.module.css";
 const ShippingCartInfo = ({ backGroundColor, shipping }) => {
-  const { totalPrice,currentCurrency,cartItems}=useContext(Context)
-    const GrandTotal = Number(shipping)
+  const { totalPrice, currentCurrency, cartItems } = useContext(Context);
+  // calculating the total price of the cart items by summing totalPrice which is calculated in app
+  // and adding shipping cost
+  const GrandTotal = Number(shipping)
     ? totalPrice + Number(shipping)
     : totalPrice;
 
-    const totaledProducts = cartItems.reduce((acc, item) => {
-  // find same id  in accumulator array
-  const existing = acc.find((el) => el.id === item.id);
+  const totaledProducts = cartItems.reduce((acc, item) => {
+    // finding if we already have this item in the accumulator
+    const existing = acc.find((el) => el.id === item.id);
+    // if we do,then we need to add the quantity of the current item's selectedSize to the
+    //  existing item's totalQuantity
+    if (existing) {
+      existing.totalQuantity += item.selectedSize.quantity;
+    } else {
+      //  if we don't have this item in the accumulator,
+      //  add new objectwith all its attributes,plus new attribute totalQuantity
+      acc.push({ ...item, totalQuantity: item.selectedSize.quantity });
+    }
 
-  if (existing) {
-    //  add the current item's quantity to the existing totalQuantity
-    existing.totalQuantity += item.selectedSize.quantity;
-  } else {
-    //  add a new item with totalQuantity initialized to this item's quantity
-    acc.push({ ...item, totalQuantity: item.selectedSize.quantity });
-  }
-
-  return acc; 
-}, []);
+    return acc;
+  }, []);
 
   return (
-    <div style={backGroundColor ? { backgroundColor: backGroundColor } : {}} className={Shipping.cartTotals}>
-      <div className={Shipping.checkOutItemsContainer}>{totaledProducts.map((item,index)=>
-      <ShippingInfoItemCart key={index} item={item}></ShippingInfoItemCart>
-      )
-        }</div>
+    <div
+    // this div is used to set background color of the cart info section from the props
+      style={backGroundColor ? { backgroundColor: backGroundColor } : {}}
+      className={Shipping.cartTotals}
+    >
+      <div className={Shipping.checkOutItemsContainer}>
+        {/* mapping items from accumulator to ShippingInfoItemCart component */}
+        {totaledProducts.map((item, index) => (
+          <ShippingInfoItemCart key={index} item={item}></ShippingInfoItemCart>
+        ))}
+      </div>
+      {/* this is below section with total price and shipping costs */}
       <div className={Shipping.costs}>
         <div className={Shipping.entry}>
           <span>Subtotal</span>
-          <span className={Shipping.amount}>{currentCurrency}{totalPrice}</span>
+          <span className={Shipping.amount}>
+            {currentCurrency}
+            {totalPrice}
+          </span>
         </div>
         <div className={Shipping.entry}>
           <span>Shipping</span>
@@ -42,7 +54,10 @@ const ShippingCartInfo = ({ backGroundColor, shipping }) => {
       </div>
       <div className={Shipping.entry}>
         <span>Total</span>
-        <span className={Shipping.amount} style={{fontSize:"1.3rem"}}>{currentCurrency}{GrandTotal}</span>
+        <span className={Shipping.amount} style={{ fontSize: "1.3rem" }}>
+          {currentCurrency}
+          {GrandTotal}
+        </span>
       </div>
     </div>
   );

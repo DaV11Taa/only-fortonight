@@ -1,12 +1,13 @@
 import React from "react";
-import ShippingCss from "./Shipping.module.css"
-const ShippingProgress = ({step}) => {
+import ShippingCss from "./Shipping.module.css";
+const ShippingProgress = ({ step }) => {
+  // based on the current step the user is in order making, we will set the color of the text
   const getColor = (targetStep) => {
-  if (step < targetStep) return "gray";
-  if (step === targetStep) return "black";
-  return "green";
-};
-
+    if (step < targetStep) return "gray";
+    if (step === targetStep) return "black";
+    return "green";
+  }; 
+  
   return (
     <div className={ShippingCss.ProgressTrack}>
       <div>
@@ -26,7 +27,7 @@ const ShippingProgress = ({step}) => {
           />
         </svg>
 
-        <span style={  { color: getColor(1) }}>Details</span>
+        <span style={{ color: getColor(1) }}>Details</span>
         <svg
           width="6"
           height="10"
@@ -58,7 +59,7 @@ const ShippingProgress = ({step}) => {
           />
         </svg>
 
-        <span style={ { color: getColor(3) } }>Payment</span>
+        <span style={{ color: getColor(3) }}>Payment</span>
       </div>
     </div>
   );

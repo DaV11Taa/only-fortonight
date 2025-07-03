@@ -7,7 +7,7 @@ import Shipping from "./Shipping.module.css";
 import Context from "../UseContext/Context";
 import { useContext } from "react";
 const PaymentMethod = () => {
-  const { orderInfo, setOrderInfo } = useContext(Context);
+  const { orderInfo} = useContext(Context);
 
   return (
     <div className={Shipping.ShippingInfoContainer}>
@@ -15,15 +15,15 @@ const PaymentMethod = () => {
         <div >
           <ShippingProgress step={3} />
           <div className={Shipping.personalInfo}>
+            {/* here goes container for personal info info entered by user */}
             <InfoEntry infoType="Contact" infoValue={orderInfo.contact} />
             <InfoEntry infoType="Ship to" infoValue={orderInfo.shipto} />
-            <InfoEntry infoType="Method" infoValue={orderInfo.shipment} />
+            <InfoEntry infoType="Method" infoValue={orderInfo.Shipment} />
           </div>
-          {/* Here goes card payment component */}
         </div>
         <ShippingFooter back="Shipping" goToText="Pay Now" />
       </div>
-
+      {/* right section which contains cart items and total price */}
       <ShippingCartInfo
         backGroundColor="#F2F2F2"
         shipping={orderInfo.Shipment}

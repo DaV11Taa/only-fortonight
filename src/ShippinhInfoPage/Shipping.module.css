@@ -3,6 +3,7 @@
   box-sizing: border-box;
   padding: 0;
 }
+/* styling for the upper Progress Track */
 .ProgressTrack {
   margin-top: 3rem;
   margin-bottom: 2rem;
@@ -10,6 +11,7 @@
 .ProgressTrack span {
   padding: 0 0.3rem;
 }
+/* styles for the ShippingDetailsPage  */
 .detailsForm label {
   font: Roboto;
   font-weight: 500;
@@ -22,7 +24,7 @@
 .ShippingDetailsBox {
   width: 50%;
   padding: 0 2rem;
-  /* height: 70vh; */
+  min-height: 100vh;
 }
 .ShippingDetailsBox p {
   font: Roboto;
@@ -42,7 +44,6 @@
 
 .nameInputRow > div {
   flex: 1;
-  position: relative;
 }
 
 .nameInput:focus {
@@ -63,8 +64,6 @@
   font-size: 0.7rem;
   font-weight: bold;
 }
-
-/* Optional: Error state */
 .nameInput .error {
   border-color: #ef4444;
 }
@@ -82,6 +81,7 @@
   margin-right: 5px;
   color: white;
 }
+/* shipping footer styles */
 .ShippingFooter {
   display: flex;
   justify-content: space-between;
@@ -102,6 +102,7 @@
   display: flex;
   flex-direction: column;
 }
+/* styles for the ShippingInfoContainer */
 .ShippingInfoContainer {
   display: flex;
   width: 100vw;
@@ -161,13 +162,13 @@
   height: 50vh;
   overflow-y: scroll;
   scrollbar-width: 0;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
   padding-top: 2.5rem;
 }
 
 .ShippingInfoContainer::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 .costs {
   border-top: 2px solid rgb(199, 199, 199);
@@ -175,6 +176,12 @@
   padding-bottom: 1rem;
   margin-top: 1rem;
 }
+.amount {
+  font-size: 16px;
+  font-weight: 500;
+  color: black !important;
+}
+/* styles for info card set by user provided information */
 .entry {
   display: flex;
   justify-content: space-between;
@@ -184,11 +191,6 @@
 .entry span {
   color: #616161;
   font-weight: 500;
-}
-.amount {
-  font-size: 16px;
-  font-weight: 500;
-  color: black !important;
 }
 .infoEntry span:first-of-type {
   color: #818181;
@@ -207,17 +209,18 @@
   width: 100%;
 }
 
+
+
+/* Shipping Options styling */
+.personalInfo .infoEntry:not(:first-of-type) {
+  border-top: 1px solid #ccc;
+}
 /* Shipping Methods section */
 .shippingMethodsTitle {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 2rem 0 1rem 0;
   color: #333;
-}
-
-/* Shipping Options styling */
-.personalInfo .infoEntry:not(:first-of-type) {
-  border-top: 1px solid #ccc;
 }
 .shipmentOption {
   display: flex;

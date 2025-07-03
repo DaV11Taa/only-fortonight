@@ -7,6 +7,10 @@ const CartPage = () => {
     const {totalPrice,totalQuantity, currentCurrency}=useContext(Context)
    const navigate=useNavigate()
    const sendToShipping=()=>{
+    if(totalQuantity===0){
+      alert("Your cart is empty")
+      return
+    }
     navigate("/shipping/details")
    }
 

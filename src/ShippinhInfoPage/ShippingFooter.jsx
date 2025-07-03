@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ShippingCss from "./Shipping.module.css"
-import { useNavigate } from "react-router-dom";
-const ShippingFooter = ({ back, goTo, goToText }) => {
-  const navigate=useNavigate();
-  
+const ShippingFooter = ({ back, goToText }) => {
+  // footer takes as a probs back which is a string that is used to create a link to the previous page
+  // and goToText which is a string that is used as a text for the button
   return (
     <div className={ShippingCss.ShippingFooter}>
      

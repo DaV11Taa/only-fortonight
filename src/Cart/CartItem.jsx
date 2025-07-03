@@ -115,7 +115,7 @@ const CartItem = ({ product, fontSize = "", containerHeight ,imageSwap}) => {
       }).filter(Boolean)
     );
   }
-
+//this function is used to swap images in the cart item
   const handleImageSwap = (direction) => {
     if (direction === "right") {
       currentImageIndex < product.ArraysOfImg.length - 1 
