@@ -25,7 +25,7 @@ const Shipment = () => {
         { price: 0, description: "free" },
         { price: 10, description: "10€" },
       ];
-    case "£":
+    case "¥":
       return [
         { price: 0, description: "free" },
         { price: 15, description: "15£" },
@@ -37,15 +37,17 @@ const Shipment = () => {
       ];
   }
 }, [currentCurrency]);
- useEffect(() => {
+useEffect(() => {
     setOrderInfo((prev) => ({
       ...prev,
       Shipment: ShipmentPrices[0].price,
-      ShipmentDisplay: "Standard Shipping - free",
+      ShipmentDisplay: `Standard Shipping - ${ShipmentPrices[0].description}`, // Changed to use dynamic description
     }));
-  }, []);
+  }, [ShipmentPrices, setOrderInfo]); // <-- Added ShipmentPrices and setOrderInfo here
+
   const navigate = useNavigate();
-  // on form submittion navigating to next page
+
+  // on form submission navigating to next page
   const handleSubmit = (e) => {
     e.preventDefault();
 
