@@ -10,7 +10,6 @@ const CurrencyDropdown = ({ setData, setCartItems }) => {
 		{ symbol: "¥", code: "JPY" },
 	];
 	const handleSelect = (currency) => {
-		console.log(currency);
 		setSelected(currency);
 		setIsOpen(false);
 		const rates = {

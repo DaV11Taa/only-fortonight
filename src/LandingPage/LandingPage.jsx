@@ -11,7 +11,6 @@ const LandingPage = ({ sort }) => {
 	const filteredData = Array.isArray(data)
 		? data.filter((product) => product?.gender === sort)
 		: [];
-	console.log(filteredData);
 	return (
 		<div className={styles.landingPage}>
 			<div className={styles.landingPage_header}>

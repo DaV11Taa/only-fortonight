@@ -5,7 +5,6 @@ import DropDownCart from "./DropDownCart/DropDownCart";
 const MiniCart = ({cartItems, setCartItems}) => {
 	const CartItems = cartItems
     const [isOpen, setIsOpen] = useState(false);
-	console.log(cartItems);
 	return (
 		<div className={styles.dropdown}>
 			<div

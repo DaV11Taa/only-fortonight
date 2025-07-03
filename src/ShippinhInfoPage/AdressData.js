@@ -11,3 +11,15 @@ export const countryProvinces = [
   "Samtskhe-Javakheti",
   "Shida Kartli",
 ];
+export const countries = [
+  "United States",
+  "Canada",
+  "United Kingdom",
+  "Germany",
+  "France",
+  "Italy",
+  "Spain",
+  "Japan",
+  "South Korea",
+  "Georgia"
+];

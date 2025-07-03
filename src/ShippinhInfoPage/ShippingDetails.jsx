@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import ShippingCartInfo from "./RightSextionCardSum/ShippingCartInfo.jsx";
 import { useContext } from "react";
 import Context from "../UseContext/Context";
-import { countryProvinces } from "./AdressData.js";
+import { countryProvinces , countries} from "./AdressData.js";
 
 const ShippingDetails = () => {
   const [errors, setErrors] = useState({});
@@ -131,7 +131,7 @@ const ShippingDetails = () => {
               />
             </div>
           </div>
-          <AdressComponent placeholder="Country/Region " options={[]} />
+          <AdressComponent placeholder="Country/Region " options={countries} />
           <div className={ShippingCss.cookies}>
             <input type="checkbox" />
             <div>Save this informations for a future fast checkout</div>
