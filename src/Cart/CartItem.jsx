@@ -131,7 +131,7 @@ const CartItem = ({ product,index}) => {
   const chosenSizeQuantity = product.selectedSize.quantity || 0;
 
   return (
-    <div className={cartStyles.itemContainer} style={{height:containerHeight}}>
+    <div className={cartStyles.itemContainer} >
       <div className={styles.upperInfo} >
         <div>
           <p className={styles.productName} >{product.name}</p>
@@ -151,7 +151,6 @@ const CartItem = ({ product,index}) => {
             <div className={styles.sizeOptions}>
               {product.sizes.map((sizes) => (
                 <button 
-                  style={fontSize ? { fontSize: fontSize } : {}}
                   key={index+product.id}
                   onClick={() => handleSizeSelect(sizes.size)}
                   className={styles.sizeOption}
@@ -171,7 +170,7 @@ const CartItem = ({ product,index}) => {
           <button onClick={() => localAdditionToCard('decrease')}>-</button>
         </div>
         <div className={cartStyles.imageInCart} >
-          <img src={product.ArraysOfImg[currentImageIndex]} alt="" />
+          <img src={product.ArraysOfImg[currentImageIndex]} alt=""  />
           
           {/* only show if  there are multiple images */}
           { product.ArraysOfImg.length > 1 && (

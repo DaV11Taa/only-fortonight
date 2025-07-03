@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  height: 250px;
 }
 .CartPage{
    padding: 16px 2rem; 
@@ -39,6 +40,7 @@
 }
 .right img{
     height: 100%;
+    margin-left: 1rem;
 }
 .cartManipulation {
   display: flex;
@@ -60,7 +62,6 @@
 .right{
     display: flex;
 }
-/* Add these styles to your CartStyles.module.css */
 
 .imageInCart {
   position: relative; /* Important: makes arrows position relative to this container */
@@ -68,6 +69,7 @@
   border-radius: 8px; /* Optional: rounded corners like in screenshot */
   height: 100%;
   aspect-ratio: 1/1;
+  
 }
 
 .navArrow {
