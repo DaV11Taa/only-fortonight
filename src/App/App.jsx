@@ -14,8 +14,10 @@ import CartPage from "../Cart/CartPage.jsx";
 import Shipment from "../ShippinhInfoPage/Shipment.jsx";
 import PaymentMethod from "../ShippinhInfoPage/PaymentMethod.jsx";
 import Payment from "../ShippinhInfoPage/Payment.jsx";
+import ConfirmationPaje from "../ShippinhInfoPage/ConfirmationPaje.jsx";
 
 
+// daikide,gamoaswora importi ukve
 
 function App() {
   const [productsData, setProductsData] = useState(products);
@@ -136,7 +138,7 @@ function App() {
               </>}></Route>
               <Route path="/shipping" element={<Shipment/>}></Route>
               <Route path="/paymentMethod" element={<PaymentMethod/>}></Route>
-              <Route path="/paymentCard" element={<Payment></Payment>}></Route>
+              <Route path="/confirmationPage" element={<ConfirmationPaje></ConfirmationPaje>}></Route>
               {/* here goes my nerves */}
 				</Routes>
 			</Context.Provider>
