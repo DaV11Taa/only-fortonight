@@ -16,8 +16,10 @@ const CartPage = () => {
 
   return (
     <div className={cartStyles.CartPage}>
+     
       <h1>Cart</h1>
-      <Cartitems />
+      { totalQuantity === 0 ? <h2>Your cart is empty</h2>:
+      <Cartitems />}
       <div><p >Quantity:</p>  <span className={cartStyles.totals}>{totalQuantity}</span></div>
         <p > <div className={cartStyles.totalLabel}>Total:</div>  <span className={cartStyles.totals}>{currentCurrency} {totalPrice}</span></p>
         <button onClick={sendToShipping} className={

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ShippingProgress from "./ShippingProgress";
 import ShippingCss from "./Shipping.module.css";
 import ShippingFooter from "./ShippingFooter";
@@ -8,9 +8,42 @@ import InfoEntry from "./InfoEntry";
 import ShipmentOption from "./ShipmentOption";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useMemo } from "react";
 const Shipment = () => {
-  const { orderInfo, setOrderInfo } = useContext(Context);
+  const { orderInfo, setOrderInfo,currentCurrency } = useContext(Context);
+ const ShipmentPrices = useMemo(() => {
+  console.log("Current currency:", currentCurrency);
+
+  switch (currentCurrency) {
+    case "$":
+      return [
+        { price: 0, description: "free" },
+        { price: 4.99, description: "4.99$" },
+      ];
+    case "€":
+      return [
+        { price: 0, description: "free" },
+        { price: 10, description: "10€" },
+      ];
+    case "£":
+      return [
+        { price: 0, description: "free" },
+        { price: 15, description: "15£" },
+      ];
+    default:
+      return [
+        { price: 0, description: "free" },
+        { price: 4.99, description: "4.99" },
+      ];
+  }
+}, [currentCurrency]);
+ useEffect(() => {
+    setOrderInfo((prev) => ({
+      ...prev,
+      Shipment: ShipmentPrices[0].price,
+      ShipmentDisplay: "Standard Shipping - free",
+    }));
+  }, []);
   const navigate = useNavigate();
   // on form submittion navigating to next page
   const handleSubmit = (e) => {
@@ -20,12 +53,15 @@ const Shipment = () => {
     navigate("/paymentMethod");
   };
   // Function to handle shipment option selection,which on defauld is free shipping
-  const chooseShipment = (e) => {
-    setOrderInfo((prev) => ({
-      ...prev,
-      Shipment: e.target.value,
-    }));
-  };
+  const chooseShipment = (value, description) => {
+  setOrderInfo((prev) => ({
+    ...prev,
+    Shipment: value,
+    ShipmentDisplay: description, 
+  }));
+};
+
+
 
   return (
     <div className={ShippingCss.ShippingInfoContainer}>
@@ -44,16 +80,16 @@ const Shipment = () => {
           <ShipmentOption
             description="Standard Shipping"
             price="free"
-            value={0}
-            onChange={chooseShipment}
-            checked={orderInfo.Shipment === 0}
+            value={ShipmentPrices[0].price}
+            onChange={() => chooseShipment(0, "Standard Shipping - free")}
+            checked={orderInfo.Shipment === ShipmentPrices[0].price}
           />
           <ShipmentOption
             description="Express Shipping"
-            price="4.99$"
-            value={4.99}
-            onChange={chooseShipment}
-            checked={orderInfo.Shipment === 4.99}
+            price={ShipmentPrices[1].description}
+            value={ShipmentPrices[1].price}
+            onChange={() => chooseShipment(ShipmentPrices[1].price, "Express Shipping - " + ShipmentPrices[1].description)}
+            checked={orderInfo.Shipment === ShipmentPrices[1].price}
           />
           <ShippingFooter
             back="details"
@@ -62,7 +98,7 @@ const Shipment = () => {
         </form>
       </div>
       <ShippingCartInfo
-        backGroundColor="#56B28033"
+        backGroundColor="#F2F2F2"
         shipping={orderInfo.Shipment}
       />
     </div>

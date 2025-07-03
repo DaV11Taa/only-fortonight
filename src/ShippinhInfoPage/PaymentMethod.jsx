@@ -18,7 +18,7 @@ const PaymentMethod = () => {
             {/* here goes container for personal info info entered by user */}
             <InfoEntry infoType="Contact" infoValue={orderInfo.contact} />
             <InfoEntry infoType="Ship to" infoValue={orderInfo.shipto} />
-            <InfoEntry infoType="Method" infoValue={orderInfo.Shipment} />
+            <InfoEntry infoType="Method" infoValue={orderInfo.ShipmentDisplay} />
           </div>
         </div>
         <ShippingFooter back="Shipping" goToText="Pay Now" />

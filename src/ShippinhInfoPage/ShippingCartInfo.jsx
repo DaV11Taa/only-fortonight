@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Context from "../UseContext/Context";
 import ShippingInfoItemCart from "./ShippingInfoItemCart";
 import Shipping from "./Shipping.module.css";
-const ShippingCartInfo = ({ backGroundColor, shipping }) => {
+const ShippingCartInfo = ({ backGroundColor, shipping, paid  }) => {
   const { totalPrice, currentCurrency, cartItems } = useContext(Context);
   // calculating the total price of the cart items by summing totalPrice which is calculated in app
   // and adding shipping cost
@@ -28,7 +28,7 @@ const ShippingCartInfo = ({ backGroundColor, shipping }) => {
 
   return (
     <div
-    // this div is used to set background color of the cart info section from the props
+      // this div is used to set background color of the cart info section from the props
       style={backGroundColor ? { backgroundColor: backGroundColor } : {}}
       className={Shipping.cartTotals}
     >
@@ -53,8 +53,15 @@ const ShippingCartInfo = ({ backGroundColor, shipping }) => {
         </div>
       </div>
       <div className={Shipping.entry}>
-        <span>Total</span>
-        <span className={Shipping.amount} style={{ fontSize: "1.3rem" }}>
+        {paid ? (
+          <span style={{ color: "#56B280" }}>Paid</span>
+        ) : (
+          <span>Total</span>
+        )}
+        <span
+          className={paid ? Shipping.paidColor : Shipping.amount}
+          style={{ fontSize: "1.3rem" }}
+        >
           {currentCurrency}
           {GrandTotal}
         </span>
