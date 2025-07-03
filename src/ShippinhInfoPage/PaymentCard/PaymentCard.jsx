@@ -44,7 +44,7 @@ const PaymentCard = () => {
 
 		if (Object.keys(newErrors).length === 0) {
             // here we will call the navigation to the next page
-            navigate("/shiping/payment");
+            navigate("/confirmationPage");
 		}
 	};
 

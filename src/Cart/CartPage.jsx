@@ -11,7 +11,7 @@ const CartPage = () => {
       alert("Your cart is empty")
       return
     }
-    navigate("/shipping/details")
+    navigate("/details")
    }
 
   return (
