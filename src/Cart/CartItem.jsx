@@ -73,7 +73,6 @@ const CartItem = ({ product,index}) => {
           },
         });
       }
-      
       return updatedCart;
     });
 
