@@ -13,6 +13,7 @@ import { useMemo } from "react";
 import CartPage from "../Cart/CartPage.jsx";
 import Shipment from "../ShippinhInfoPage/Shipment.jsx";
 import PaymentMethod from "../ShippinhInfoPage/PaymentMethod.jsx";
+import Payment from "../ShippinhInfoPage/Payment.jsx";
 
 
 
@@ -135,6 +136,7 @@ function App() {
               </>}></Route>
               <Route path="/Shipping" element={<Shipment/>}></Route>
               <Route path="/paymentMethod" element={<PaymentMethod/>}></Route>
+              <Route path="/paymentCard" element={<Payment></Payment>}></Route>
               
 				</Routes>
 			</Context.Provider>

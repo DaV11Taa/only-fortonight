@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-.header {
+.payment {
   width: 500px;
   height: 100vh;
   display: flex;
@@ -16,7 +16,7 @@
   align-items: flex-start !important;
 }
 
-.payment h2 {
+.header h2 {
   text-align: left !important;
   margin-left: 0 !important;
   margin-right: auto !important;
@@ -31,7 +31,7 @@
   top: 366px;
   left: 168px;
 }
-.payment {
+.header {
   transform: none !important;
 }
 
@@ -64,17 +64,17 @@
   letter-spacing: -0.9px;
 }
 
-form {
+.payment form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-form div {
+.payment form div {
   position: relative;
 }
 
-input {
+.payment input {
   width: 100%;
   padding: 15px;
   border: 1px solid black !important;

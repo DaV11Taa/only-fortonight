@@ -18,12 +18,12 @@ const ShippingInfoItemCart = ({ item }) => {
             {item.totalQuantity}
           </div>
         </div>
-        <div>
-          <h2>{item.name}</h2>
-          <h3>
-            {currentCurrency} {item.price}
-          </h3>
-        </div>
+      </div>
+      <div>
+        <h2>{item.name}</h2>
+        <h3>
+          {currentCurrency} {item.price}
+        </h3>
       </div>
     </div>
   );

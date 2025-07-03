@@ -41,9 +41,9 @@ useEffect(() => {
     setOrderInfo((prev) => ({
       ...prev,
       Shipment: ShipmentPrices[0].price,
-      ShipmentDisplay: `Standard Shipping - ${ShipmentPrices[0].description}`, // Changed to use dynamic description
+      ShipmentDisplay: `Standard Shipping - ${ShipmentPrices[0].description}`, 
     }));
-  }, [ShipmentPrices, setOrderInfo]); // <-- Added ShipmentPrices and setOrderInfo here
+  }, [ShipmentPrices, setOrderInfo]); 
 
   const navigate = useNavigate();
 

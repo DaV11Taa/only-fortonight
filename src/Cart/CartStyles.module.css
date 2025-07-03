@@ -7,7 +7,7 @@
 .CartPage{
    padding: 16px 2rem; 
 }
-.CartPage>div p{
+.CartPage>p div{
     width: 100px;
     display: inline-block;
   
