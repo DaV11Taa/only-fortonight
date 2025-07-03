@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ShippingPayment from "./ShippingPayment.module.css"
 const ShipingPayment = () => {
-  const [orderNumber, setOrderNumber] = useState(1);
+  const [orderNumber, setOrderNumber,setCartItems] = useState(1);
+  const navigate = useNavigate();
   
   useEffect(() => {
     const lastOrder = localStorage.getItem("lastOrderNumber");
@@ -12,6 +13,15 @@ const ShipingPayment = () => {
     setOrderNumber(newOrder);
     localStorage.setItem("lastOrderNumber", newOrder);
   }, []);
+  const handleBackToShopping = () => {
+  
+        // Clear the cart items after confirmation
+        setCartItems([]);
+        navigate("/women");
+   
+
+  }
+
   
 
   return (
@@ -47,7 +57,7 @@ const ShipingPayment = () => {
       </svg></div>
       <div className={ShippingPayment.title}><h1>Payment Confirmed</h1></div>
       <div className={ShippingPayment.order}> <p>ORDER #{orderNumber}</p></div>
-     <div className={ShippingPayment.button}><Link to="/women">Back to shoping</Link></div>
+     <div className={ShippingPayment.button}><button >Back to shoping</button></div>
       
     </div>
   );

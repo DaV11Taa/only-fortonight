@@ -8,10 +8,6 @@ import ShipingPayment from "./ShipingPayment"
 
 const ConfirmationPaje = () => {
   const { orderInfo, setCartItems } = useContext(Context);
-  useEffect(() => {
-    // Clear the cart items after confirmation
-    setCartItems([]);
-  }, []);
   return (
     <div className={styles.ShippingInfoContainer}>
       <div style={{padding: "1rem"}}>
