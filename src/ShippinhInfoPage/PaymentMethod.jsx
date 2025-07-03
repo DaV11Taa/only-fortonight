@@ -6,6 +6,7 @@ import ShippingCartInfo from "./ShippingCartInfo";
 import Shipping from "./Shipping.module.css";
 import Context from "../UseContext/Context";
 import { useContext } from "react";
+import PaymentCard from "./PaymentCard/PaymentCard";
 const PaymentMethod = () => {
   const { orderInfo} = useContext(Context);
 
@@ -21,6 +22,7 @@ const PaymentMethod = () => {
             <InfoEntry infoType="Method" infoValue={orderInfo.ShipmentDisplay} />
           </div>
         </div>
+        <PaymentCard />
         <ShippingFooter back="Shipping" goToText="Pay Now" />
       </div>
       {/* right section which contains cart items and total price */}
