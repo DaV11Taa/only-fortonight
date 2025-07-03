@@ -50,7 +50,11 @@ const ShippingDetails = () => {
     if (!data.city?.trim()) newErrors.city = "City is required";
     if (!data.postalCode?.trim())
       newErrors.postalCode = "Postal code is required";
-
+    if (!data.country?.trim())
+      newErrors.country = "Country is required";
+    if (!data.province?.trim())
+      newErrors.province = "Province is required";
+    
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
@@ -129,9 +133,15 @@ const ShippingDetails = () => {
                 options={countryProvinces}
                 placeholder="Select Province"
               />
+              <div className={ShippingCss.required}>{errors.province}</div>
             </div>
           </div>
-          <AdressComponent placeholder="Country/Region " options={countries} />
+          <AdressComponent
+            name="country"
+            placeholder="Country/Region "
+            options={countries}
+          />
+          <div className={ShippingCss.required}>{errors.country}</div>
           <div className={ShippingCss.cookies}>
             <input type="checkbox" />
             <div>Save this informations for a future fast checkout</div>
