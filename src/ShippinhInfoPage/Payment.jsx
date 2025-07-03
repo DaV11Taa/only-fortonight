@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Payment.module.css";
 const Payment = () => {
   return (
-    <div className={styles.header}>
-      <div className={styles.payment}>
+    <div className={styles.payment}>
+      <div className={styles.header}>
         <h2>Payment method</h2>
       </div>
 

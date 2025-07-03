@@ -3,15 +3,23 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  height: 250px;
 }
 .CartPage{
    padding: 16px 2rem; 
 }
-.CartPage>div p{
+.CartPage>p div{
     width: 100px;
-    display: inline-block;
+    display: flex;
   
 }
+.totalsRow{
+  display: flex;
+}
+.totalsRow p{
+  width: 100px;
+}
+
 .totals{
     font-weight: 700;
 }
@@ -32,6 +40,7 @@
 }
 .right img{
     height: 100%;
+    margin-left: 1rem;
 }
 .cartManipulation {
   display: flex;
@@ -53,7 +62,6 @@
 .right{
     display: flex;
 }
-/* Add these styles to your CartStyles.module.css */
 
 .imageInCart {
   position: relative; /* Important: makes arrows position relative to this container */
@@ -61,6 +69,7 @@
   border-radius: 8px; /* Optional: rounded corners like in screenshot */
   height: 100%;
   aspect-ratio: 1/1;
+  
 }
 
 .navArrow {
@@ -94,14 +103,14 @@
 }
 
 .leftArrow {
-  right: 52px; /* Position left arrow to the left of right arrow */
+  right: 52px; /* Position left arrow */
 }
 
 .rightArrow {
-  right: 12px; /* Position right arrow at the right edge */
+  right: 12px; /* Position right arrow */
 }
 
-/* Show arrows only on hover for cleaner look */
+/* Showing arrows only on hover */
 .imageInCart .navArrow {
   opacity: 0;
   transition: opacity 0.2s ease;

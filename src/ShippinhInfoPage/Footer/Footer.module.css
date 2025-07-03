@@ -1,0 +1,21 @@
+/* shipping footer styles */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.ShippingFooter {
+  display: flex;
+  justify-content: space-between;
+}
+.ShippingFooter a:first-of-type {
+  color: green;
+  text-decoration: underline;
+}
+.ShippingFooter button {
+  padding: 0.6rem 1.5rem;
+  color: white;
+  background-color: #56b280;
+  border-radius: 5px;
+  border-width: none;
+}

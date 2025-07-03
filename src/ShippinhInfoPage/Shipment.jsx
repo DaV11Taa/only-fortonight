@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ShippingProgress from "./ShippingProgress";
+import ShippingProgress from "./ShippingProgress/ShippingProgress";
 import ShippingCss from "./Shipping.module.css";
-import ShippingFooter from "./ShippingFooter";
-import ShippingCartInfo from "./ShippingCartInfo";
+import ShippingFooter from "./Footer/ShippingFooter";
+import ShippingCartInfo from "./RightSextionCardSum/ShippingCartInfo";
 import Context from "../UseContext/Context";
 import InfoEntry from "./InfoEntry";
 import ShipmentOption from "./ShipmentOption";
@@ -10,40 +10,40 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 const Shipment = () => {
-  const { orderInfo, setOrderInfo,currentCurrency } = useContext(Context);
- const ShipmentPrices = useMemo(() => {
-  console.log("Current currency:", currentCurrency);
+  const { orderInfo, setOrderInfo, currentCurrency } = useContext(Context);
+  const ShipmentPrices = useMemo(() => {
+    console.log("Current currency:", currentCurrency);
 
-  switch (currentCurrency) {
-    case "$":
-      return [
-        { price: 0, description: "free" },
-        { price: 4.99, description: "4.99$" },
-      ];
-    case "€":
-      return [
-        { price: 0, description: "free" },
-        { price: 10, description: "10€" },
-      ];
-    case "¥":
-      return [
-        { price: 0, description: "free" },
-        { price: 15, description: "15£" },
-      ];
-    default:
-      return [
-        { price: 0, description: "free" },
-        { price: 4.99, description: "4.99" },
-      ];
-  }
-}, [currentCurrency]);
-useEffect(() => {
+    switch (currentCurrency) {
+      case "$":
+        return [
+          { price: 0, description: "free" },
+          { price: 4.99, description: "4.99$" },
+        ];
+      case "€":
+        return [
+          { price: 0, description: "free" },
+          { price: 10, description: "10€" },
+        ];
+      case "¥":
+        return [
+          { price: 0, description: "free" },
+          { price: 15, description: "15£" },
+        ];
+      default:
+        return [
+          { price: 0, description: "free" },
+          { price: 4.99, description: "4.99" },
+        ];
+    }
+  }, [currentCurrency]);
+  useEffect(() => {
     setOrderInfo((prev) => ({
       ...prev,
       Shipment: ShipmentPrices[0].price,
-      ShipmentDisplay: `Standard Shipping - ${ShipmentPrices[0].description}`, // Changed to use dynamic description
+      ShipmentDisplay: `Standard Shipping - ${ShipmentPrices[0].description}`,
     }));
-  }, [ShipmentPrices, setOrderInfo]); // <-- Added ShipmentPrices and setOrderInfo here
+  }, [ShipmentPrices, setOrderInfo]);
 
   const navigate = useNavigate();
 
@@ -56,14 +56,12 @@ useEffect(() => {
   };
   // Function to handle shipment option selection,which on defauld is free shipping
   const chooseShipment = (value, description) => {
-  setOrderInfo((prev) => ({
-    ...prev,
-    Shipment: value,
-    ShipmentDisplay: description, 
-  }));
-};
-
-
+    setOrderInfo((prev) => ({
+      ...prev,
+      Shipment: value,
+      ShipmentDisplay: description,
+    }));
+  };
 
   return (
     <div className={ShippingCss.ShippingInfoContainer}>
@@ -76,7 +74,6 @@ useEffect(() => {
         </section>
         <h2>Shipping Methods</h2>
         <form onSubmit={handleSubmit}>
-          {/* Removed empty action */}
           {/* we take two options for shipment, free and express shipping 
           and take their value to set Shipments in orderInfo */}
           <ShipmentOption
@@ -90,13 +87,15 @@ useEffect(() => {
             description="Express Shipping"
             price={ShipmentPrices[1].description}
             value={ShipmentPrices[1].price}
-            onChange={() => chooseShipment(ShipmentPrices[1].price, "Express Shipping - " + ShipmentPrices[1].description)}
+            onChange={() =>
+              chooseShipment(
+                ShipmentPrices[1].price,
+                "Express Shipping - " + ShipmentPrices[1].description
+              )
+            }
             checked={orderInfo.Shipment === ShipmentPrices[1].price}
           />
-          <ShippingFooter
-            back="details"
-            goToText="Go to payment"
-          />
+          <ShippingFooter back="details" goToText="Go to payment" />
         </form>
       </div>
       <ShippingCartInfo

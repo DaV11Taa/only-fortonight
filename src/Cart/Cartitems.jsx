@@ -9,7 +9,7 @@ const Cartitems = () => {
     <div className={cartStyles.cartItemsBox}>
       {
         cartItems.map((item,index)=> <CartItem product={item} 
-        imageSwap={true} containerHeight="300px" index={index}/>)
+        index={index}/>)
       }
     </div>
   )

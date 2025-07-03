@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
-import Shipping from "./Shipping.module.css";
-import Context from "../UseContext/Context";
+import Shipping from "./ShippingInfoCard.module.css";
+import Context from "../../UseContext/Context";
 const ShippingInfoItemCart = ({ item }) => {
   const { currentCurrency } = useContext(Context);
   // this component is used to display each item in the cart
@@ -18,12 +18,12 @@ const ShippingInfoItemCart = ({ item }) => {
             {item.totalQuantity}
           </div>
         </div>
-        <div>
-          <h2>{item.name}</h2>
-          <h3>
-            {currentCurrency} {item.price}
-          </h3>
-        </div>
+      </div>
+      <div>
+        <h2>{item.name}</h2>
+        <h3>
+          {currentCurrency} {item.price}
+        </h3>
       </div>
     </div>
   );

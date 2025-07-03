@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.ProgressTrack {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+.ProgressTrack span {
+  padding: 0 0.3rem;
+}
