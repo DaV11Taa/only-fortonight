@@ -182,7 +182,7 @@ const DropDownCart = ({ cartItems, setCartItems }) => {
 				<button className={styles.viewBagBtn} onClick={() => navigate("/Cart")}>
 					VIEW BAG
 				</button>
-				<button className={styles.checkoutBtn} onClick={() => navigate("/shipping/details")}>
+				<button className={styles.checkoutBtn} onClick={() => navigate("/details")}>
 					CHECK OUT
 				</button>
 			</div>
