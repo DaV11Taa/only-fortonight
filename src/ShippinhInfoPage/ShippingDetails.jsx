@@ -2,7 +2,7 @@ import React from "react";
 import ShippingProgress from "./ShippingProgress/ShippingProgress.jsx";
 import ShippingFooter from "./Footer/ShippingFooter.jsx";
 import ShippingCss from "./Shipping.module.css";
-import AdressComponent from "./AdressComponent";
+import AdressComponent from "./AdressComponent/AdressComponent.jsx";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ShippingCartInfo from "./RightSextionCardSum/ShippingCartInfo.jsx";
