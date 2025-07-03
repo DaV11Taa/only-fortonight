@@ -30,7 +30,7 @@ const CurrencyDropdown = ({ setData, setCartItems }) => {
 		setCartItems(prevCartItems =>
 			prevCartItems.map(item => ({
 				...item,
-				price: item.price * rates[currency.code],
+				price: item.originalPrice * rates[currency.code],
 				currency: currency.code
 			}))
 		);

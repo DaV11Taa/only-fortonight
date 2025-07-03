@@ -1,0 +1,43 @@
+.addressComponent {
+    position: relative;
+    width: 100%;
+}
+
+.addressSelect {
+    position: relative;
+    width: 100%;
+    padding: 10px 20px;
+    padding-right: 50px;
+    border: 1px solid #b7b7b7;
+    font-size: 1rem;
+    color: grey;
+    background-color: #f9fafb;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.selectArrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: grey;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+.addressSelect option {
+    position: relative;
+    padding: 12px;
+    font-size: 16px;
+    color: grey;
+    background-color: white;
+    z-index: 10001;
+}
+
+.addressSelect:focus ~ .selectArrow {
+    transform: translateY(-50%) rotate(180deg);
+}

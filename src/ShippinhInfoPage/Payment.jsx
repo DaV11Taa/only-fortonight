@@ -88,7 +88,6 @@ const Payment = () => {
         </div>
         <ShippingFooter step={4}/>
         </div>
-        
       </form>
     </div>
   );
