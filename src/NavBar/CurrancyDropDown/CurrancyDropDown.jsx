@@ -14,7 +14,7 @@ const CurrencyDropdown = ({ setData, setCartItems }) => {
 		setIsOpen(false);
 		const rates = {
 			USD: 1, // Base currency
-			EUR: 1.2, // 1 USD = 0.85 EUR
+			EUR: 1.5, // 1 USD = 0.85 EUR
 			JPY: 145, // 1 USD = 110 JPY
 		};
 

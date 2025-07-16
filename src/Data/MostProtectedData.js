@@ -204,6 +204,7 @@ export const products = [
 			return this.sizes.some(size => size.stock > 0);
 		},
 		currency: "USD",
+		originalPrice: 60.0,
 		description:
 			"Muscle-enhancing compression shirt with sweat-wicking fabric for optimal performance.",
 	},
